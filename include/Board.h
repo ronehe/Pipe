@@ -4,7 +4,7 @@ class Board {
 
 
 public:
-	void draw_Board(sf::RenderWindow& game_Window)const;
+	void draw_Board(sf::RenderWindow& game_Window);
 	Tile& get_Tile(sf::Vector2i pos);
 
 	Board();
