@@ -3,8 +3,9 @@
 #pragma once
 
 Controller::Controller()
-	: m_gameWindow(sf::VideoMode(1200, 800), "Pipes")
+	: m_gameWindow(sf::VideoMode(1200, 800), "Pipes"), m_background(Textures::instance().get_Textures(background))
 {
+	m_gameWindow.draw(m_background);
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::startGame() {
