@@ -18,8 +18,8 @@ void Controller::startGame() {
 		{
 			switch (event.type) {
 			case::sf::Event::MouseButtonPressed:
-				if (int(event.mouseMove.x) / 100 > 800)
-					continue;
+				if (int(event.mouseMove.y / 100) > 7)
+					break;
 				else
 					m_board.getTile(sf::Vector2i(int(event.mouseButton.y / 100), int(event.mouseButton.x / 100))).rotate();
 				break;

@@ -2,8 +2,8 @@
 
 Tile::Tile(sf::Color cr, sf::Vector2f size, sf::Vector2f pos)
 {
-	m_tile.setOrigin(((float(1)/2) * size));
-	m_tile.setPosition(pos + (float(1)/2 * size));
+	m_tile.setOrigin(((float(1)/2) * size)); //set the origin to be the middle
+	m_tile.setPosition(pos + (float(1)/2 * size)); 
 	m_tile.setFillColor(cr);
 	//m_Tile.setOutlineThickness(3);
 	m_tile.setSize(size);
