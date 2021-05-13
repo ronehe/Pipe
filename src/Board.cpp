@@ -3,7 +3,6 @@
 #pragma once
 
 Board::Board() {
-
 	unsigned int pos = 0;
 	const sf::Color Current_Color[2] = { sf::Color(0xF5, 0xF5, 0xF5) ,sf::Color(0xD2, 0x69, 0x1E) };//easier to set color using it
 	m_Board.resize(8);
