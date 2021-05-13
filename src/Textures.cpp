@@ -17,6 +17,7 @@ Textures::Textures() {
 
 	pic.loadFromFile("straightPipe - Copy.png");
 	pic.setSmooth(true);
+	
 	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(straightPipe, pic));
 
 	pic.loadFromFile("background.jpeg");

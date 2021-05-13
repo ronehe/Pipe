@@ -25,6 +25,6 @@ void Tile::setTexture(const sf::Texture& pic) {
 	m_tile.setTexture(pic);
 }
 
-void Tile::rotate() {
-	m_tile.rotate(90.f);
+void Tile::rotate(float degrees) {
+	m_tile.rotate(degrees);
 }
