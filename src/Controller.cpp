@@ -5,13 +5,15 @@
 Controller::Controller()
 	: m_gameWindow(sf::VideoMode(1200, 800), "Pipes", sf::Style::Close), m_background(Textures::instance().get_Textures(background))
 {
-	m_gameWindow.draw(m_background);
+	m_background.setTextureRect(sf::IntRect(600, 0, 800, 800));
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::startGame() {
 	sf::Event event;
 	while (m_gameWindow.isOpen()) {
 		m_gameWindow.clear();
+		m_gameWindow.draw(m_background);
+
 		m_board.drawBoard(m_gameWindow);
 		m_gameWindow.display();
 
