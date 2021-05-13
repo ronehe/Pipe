@@ -6,7 +6,6 @@
 int main() {
     Controller game;
 
-    game.start_Game();
-    //std::cout << "hello world";
+    game.startGame();
     exit(EXIT_SUCCESS);
 }

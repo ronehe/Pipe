@@ -3,29 +3,28 @@
 #pragma once
 
 Controller::Controller()
-	: m_Game_Window(sf::VideoMode(1200, 800), "Pipes")
+	: m_gameWindow(sf::VideoMode(1200, 800), "Pipes")
 {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-void Controller::start_Game() {
-	
-	
-
+void Controller::startGame() {
 	sf::Event event;
-	while (m_Game_Window.isOpen()) {
+	while (m_gameWindow.isOpen()) {
+		m_gameWindow.clear();
+		m_board.drawBoard(m_gameWindow);
+		m_gameWindow.display();
 
-		m_Game_Window.clear();
-
-		m_Board.draw_Board(m_Game_Window);
-
-
-		m_Game_Window.display();
-		while (m_Game_Window.pollEvent(event))
+		while (m_gameWindow.pollEvent(event))
 		{
 			switch (event.type) {
-
+			case::sf::Event::MouseButtonPressed:
+				if (int(event.mouseMove.x) / 100 > 800)
+					continue;
+				else
+					m_board.getTile(sf::Vector2i(int(event.mouseButton.y / 100), int(event.mouseButton.x / 100))).rotate();
+				break;
 			case sf::Event::Closed:
-				m_Game_Window.close();
+				m_gameWindow.close();
 				exit(EXIT_SUCCESS);
 			};
 		}
