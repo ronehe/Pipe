@@ -8,8 +8,6 @@ Textures& Textures::instance() {
 //set textures for all object in the game once
 Textures::Textures() {
 	//m_Font.loadFromFile("Love America.ttf");//setting one font
-
-
 	sf::Texture pic;
 	sf::Image im;
 	im.loadFromFile("pieces.png");
@@ -25,8 +23,4 @@ Textures::Textures() {
 			m_Tool_Tex[cr][tl].setSmooth(true);
 		}
 	}
-
-
-
-
 }

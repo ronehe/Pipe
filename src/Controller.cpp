@@ -3,7 +3,7 @@
 #pragma once
 
 Controller::Controller()
-	: m_Game_Window(sf::VideoMode(800, 800), "Chess")
+	: m_Game_Window(sf::VideoMode(800, 800), "Pipe")
 {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -27,24 +27,10 @@ void Controller::start_Game() {
 			case sf::Event::Closed:
 				m_Game_Window.close();
 				exit(EXIT_SUCCESS);
-
-
-
-
-
 			};
-
-
 		}
-
 	}
 }
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-//creating tool objects..
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 
 
