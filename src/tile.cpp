@@ -4,12 +4,8 @@ Tile::Tile(sf::Color cr, sf::Vector2f size, sf::Vector2f pos)
 {
 	m_tile.setOrigin(((float(1)/2) * size)); //set the origin to be the middle
 	m_tile.setPosition(pos + (float(1)/2 * size)); 
-	m_tile.setFillColor(cr);
-	//m_Tile.setOutlineThickness(3);
-	m_tile.setSize(size);
-	m_tile.setOutlineColor(sf::Color::Black);
-
-	//set origin to the middle of the tile
+	m_tile.setColor(sf::Color::Red);
+	m_tile.setTextureRect(sf::IntRect(0, 0, 100, 100));
 }
 
 void Tile::drawTile(sf::RenderWindow& game_Window)const {
@@ -21,7 +17,7 @@ bool operator==(const Tile& first, const Tile& second) {
 	(second.getShape().getGlobalBounds()));
 }
 void Tile::setTexture(const sf::Texture& pic) {
-	m_tile.setTexture(&pic);
+	m_tile.setTexture(pic);
 }
 
 void Tile::rotate() {

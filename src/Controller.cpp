@@ -18,10 +18,8 @@ void Controller::startGame() {
 		{
 			switch (event.type) {
 			case::sf::Event::MouseButtonPressed:
-				if (int(event.mouseMove.y / 100) > 7)
-					break;
-				else
-					m_board.getTile(sf::Vector2i(int(event.mouseButton.y / 100), int(event.mouseButton.x / 100))).rotate();
+				if (!(int(event.mouseMove.y / 100) > 7))
+					m_board.rotateTile(sf::Vector2i(int(event.mouseButton.y / 100), int(event.mouseButton.x / 100)));
 				break;
 			case sf::Event::Closed:
 				m_gameWindow.close();
@@ -30,7 +28,3 @@ void Controller::startGame() {
 		}
 	}
 }
-
-
-
-
