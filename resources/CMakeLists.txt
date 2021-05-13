@@ -1,4 +1,10 @@
 ﻿#configure_file ("levels.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("curvedPipe.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("straightPipe.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("background.jpeg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("background2.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("curvedPipe - Copy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("straightPipe - Copy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 

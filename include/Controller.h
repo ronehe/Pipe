@@ -12,7 +12,7 @@ class Controller {
 
 public:
 	Controller();
-	void start_Game();//the game loop
+	void startGame();//the game loop
 
 
 
@@ -22,8 +22,9 @@ private:
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~//
 
 private:
-	sf::RenderWindow m_Game_Window;
-	Board m_Board;
+	sf::RenderWindow m_gameWindow;
+	sf::Sprite m_background;
+	Board m_board;
 
 	//std::make_unique<<std::vector<Tool*>>m_Chess_Pieces[2];
 	//std::vector<std::vector<Tool*>>m_Chess_Pieces[2];

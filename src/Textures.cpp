@@ -11,12 +11,16 @@ Textures::Textures() {
 	sf::Texture pic;
 	sf::Image im;
 	im.loadFromFile("pieces.png");
-	pic.loadFromFile("curvedPipe.png");
+	pic.loadFromFile("curvedPipe - Copy.png");
 	pic.setSmooth(true);
 	m_pipeTex.insert(std::pair<pipeTextures,sf::Texture>(curvedPipe,pic));
-	pic.loadFromFile("straightPipe.png");
+
+	pic.loadFromFile("straightPipe - Copy.png");
 	pic.setSmooth(true);
 	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(straightPipe, pic));
+
+	pic.loadFromFile("background.jpeg");
+	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(background, pic));
 
 
 
