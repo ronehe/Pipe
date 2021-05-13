@@ -3,7 +3,7 @@
 #pragma once
 
 Controller::Controller()
-	: m_Game_Window(sf::VideoMode(800, 800), "Pipes")
+	: m_Game_Window(sf::VideoMode(1200, 800), "Pipes")
 {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
