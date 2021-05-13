@@ -23,6 +23,7 @@ private:
 
 private:
 	sf::RenderWindow m_gameWindow;
+	sf::Sprite m_background;
 	Board m_board;
 
 	//std::make_unique<<std::vector<Tool*>>m_Chess_Pieces[2];
