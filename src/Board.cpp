@@ -1,4 +1,7 @@
 #include "Board.h"
+#include "Textures.h"
+#pragma once
+
 Board::Board() {
 	unsigned int pos = 0;
 	const sf::Color Current_Color[2] = { sf::Color(0xF5, 0xF5, 0xF5) ,sf::Color(0xD2, 0x69, 0x1E) };//easier to set color using it
@@ -19,7 +22,8 @@ Board::Board() {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //drawing the board on requested screen..
-void Board::draw_Board(sf::RenderWindow& game_Window)const {
+void Board::draw_Board(sf::RenderWindow& game_Window) {
+	m_Board[1][1].setTexture(Textures::instance().get_Textures(curvedPipe));
 	for (unsigned int i = 0; i < 8; i++) {
 		for (unsigned int j = 0; j < 8; j++) {
 			m_Board[i][j].draw_Tile(game_Window);

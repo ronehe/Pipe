@@ -11,16 +11,13 @@ Textures::Textures() {
 	sf::Texture pic;
 	sf::Image im;
 	im.loadFromFile("pieces.png");
-	//resizing the tools by color..
-	m_Tool_Tex[white].resize(different_Tools);
-	m_Tool_Tex[black].resize(different_Tools);
+	pic.loadFromFile("curverdPipeWithColor.png");
+	
+	
+	m_pipeTex.insert(std::pair<pipeTextures,sf::Texture>(curvedPipe,pic));
 
 
-	for (unsigned int cr = 0; cr < 2; cr++) {
-		for (unsigned int tl = king; tl < different_Tools; tl++) {
-			//m_Tool_Tex[white][king].loadFromImage(im, sf::IntRect(0, 0, toolSize, toolSize));
-			m_Tool_Tex[cr][tl].loadFromImage(im, sf::IntRect(toolSize * tl, toolSize * cr, toolSize, toolSize));
-			m_Tool_Tex[cr][tl].setSmooth(true);
-		}
-	}
+
+
+
 }

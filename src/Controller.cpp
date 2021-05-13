@@ -8,9 +8,9 @@ Controller::Controller()
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::start_Game() {
-	Tile x(sf::Color::Red, sf::Vector2f(100.f, 100.f), sf::Vector2f(0.f, 0.f));
-	int z, y;
-	sf::Vector2i cursorPos;
+	
+	
+
 	sf::Event event;
 	while (m_Game_Window.isOpen()) {
 
