@@ -12,7 +12,7 @@ public:
 	sf::Sprite getShape()const { return  m_tile; };
 	bool contains(sf::Vector2f loc)const { return m_tile.getGlobalBounds().contains(loc); }
 	void setTexture(const sf::Texture & pic);
-	void rotate();
+	void rotate(float);
 	//~~~~~~~~~~~~~~~~~~~private functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 private:
 	//~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

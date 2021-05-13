@@ -29,8 +29,8 @@ void Board::drawBoard(sf::RenderWindow& game_Window) {
 }
 
 //rotation function
-void Board::rotateTile(const sf::Vector2i &posTile) {
-	m_Board[posTile.x][posTile.y].rotate();
+void Board::rotateTile(const sf::Vector2i &posTile, float degrees) {
+	m_Board[posTile.x][posTile.y].rotate(degrees);
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //returns  a tile in location on board ..
