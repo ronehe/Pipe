@@ -5,7 +5,8 @@
 Controller::Controller()
 	: m_gameWindow(sf::VideoMode(1200, 800), "Pipes",sf::Style::Close), m_background(Textures::instance().get_Textures(background))
 {
-	m_background.setTextureRect(sf::IntRect(600,0 , 800, 800));
+	m_background.setTextureRect(sf::IntRect(100,1200 , 800,800 ));
+	//m_background.setColor(sf::Color(0xFF, 0x63, 0x47));
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::startGame() {

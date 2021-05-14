@@ -2,13 +2,10 @@
 
 Tile::Tile(sf::Color cr, sf::Vector2f size, sf::Vector2f pos)
 {
-	m_tile.setOrigin(((float(1)/2) * size)); //set the origin to be the middle
-	m_tile.setPosition(pos + (float(1)/2 * size)); 
-	m_tile.setColor(sf::Color(0x9A, 0xCD, 0x32));
-
-
-
-
+	m_tile.setOrigin(HALF * size); //set the origin to be the middle
+	m_tile.setPosition(pos + HALF * size); 
+	//m_tile.setColor(sf::Color(0x9A, 0xCD, 0x32));//green
+	m_tile.setColor(sf::Color(0xAD, 0xFF, 0x2F));//green
 	m_tile.setTextureRect(sf::IntRect(0, 0, 100, 100));
 	//m_tile.setTexture(sf::Color)
 }

@@ -5,6 +5,10 @@ configure_file ("background.jpeg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("background2.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("curvedPipe - Copy.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("straightPipe - Copy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("bg.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("bg2.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 
 
 

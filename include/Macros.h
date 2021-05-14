@@ -6,3 +6,5 @@ enum pipeTextures {
 	straightPipe=1,
 	background = 2
 };
+
+const float HALF = float(1) / 2;
