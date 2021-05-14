@@ -3,9 +3,13 @@
 #pragma once
 
 Controller::Controller()
-	: m_gameWindow(sf::VideoMode(1200, 800), "Pipes",sf::Style::Close), m_background(Textures::instance().get_Textures(background))
+	: m_gameWindow(sf::VideoMode(1200, 800), "Pipes",sf::Style::Close), m_background(Textures::instance().get_Textures(background_t)), m_bgMenu(Textures::instance().get_Textures(background_t))
 {
 	m_background.setTextureRect(sf::IntRect(100,1200 , 800,800 ));
+	m_bgMenu.setPosition(sf::Vector2f(800.f,0.f));
+	m_bgMenu.setTextureRect(sf::IntRect(0,800, 400, 800));
+
+
 	//m_background.setColor(sf::Color(0xFF, 0x63, 0x47));
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -14,6 +18,7 @@ void Controller::startGame() {
 	while (m_gameWindow.isOpen()) {
 		m_gameWindow.clear();
 		m_gameWindow.draw(m_background);
+		m_gameWindow.draw(m_bgMenu);
 
 		m_board.drawBoard(m_gameWindow);
 		m_gameWindow.display();

@@ -18,12 +18,12 @@ Board::Board() {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //drawing the board on requested screen..
 void Board::drawBoard(sf::RenderWindow& game_Window) {
-	m_Board[1][1].setTexture(Textures::instance().get_Textures(straightPipe));
-	m_Board[2][1].setTexture(Textures::instance().get_Textures(curvedPipe));
+	m_Board[1][1].setTexture(Textures::instance().get_Textures(straightPipe_t));
+	m_Board[2][1].setTexture(Textures::instance().get_Textures(curvedPipe_t));
 	for (unsigned int i = 0; i < 8; i++) {
 		for (unsigned int j = 0; j < 8; j++) {
 			m_Board[i][j].drawTile(game_Window);
-			m_Board[i][j].setTexture(Textures::instance().get_Textures(curvedPipe));
+			m_Board[i][j].setTexture(Textures::instance().get_Textures(curvedPipe_t));
 		}
 	}
 }
