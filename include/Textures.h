@@ -12,7 +12,6 @@ public:
 	static Textures& instance();
 	//gets requested sound from sound member
 	const sf::Texture& get_Textures(pipeTextures key) { return (m_pipeTex[key]); }
-	//const sf::Font& get_Font(){ return m_Font; }
 	//--------------private--------functions-----------------------//		
 private:
 
