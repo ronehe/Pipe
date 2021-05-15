@@ -3,6 +3,7 @@
 #include <iostream>
 #include <Windows.h>
 #include "FileHandler.h"
+#include "RepTex.h"
 
 
 //#include "iostream"
@@ -19,7 +20,7 @@ private:
 	//creates the window and the outlines
 	void generateBackgrounds();
 	void updateDataStructures();
-
+	void createCharToTexCoverter();
 	void rotate(sf::Event event);
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~//
@@ -27,7 +28,8 @@ private:
 	sf::RenderWindow m_gameWindow;
 	sf::Sprite m_background;
 	sf::Sprite m_bgMenu;
-
+	std::map<char, pipeTextures>m_charToTexConverter;
+	RepTex m_mapOnScreen;
 	FileHandler m_map;
 	Board m_board;
 

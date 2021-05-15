@@ -13,9 +13,9 @@ public:
 
 	~FileHandler();
 
-	void print_Map();
+	
 
-	char what_In_Location(const sf::Vector2i cur_Loc)const;// reuturns elemnt on board 
+	char what_In_Location(const sf::Vector2u cur_Loc)const;// reuturns elemnt on board 
 
 	sf::Vector2i get_Size() const;//returns size of the the vector for controller 
 

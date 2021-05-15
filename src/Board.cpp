@@ -2,8 +2,7 @@
 #include "Textures.h"
 
 Board::Board() {
-	unsigned int pos = 0;
-	const sf::Color CurrentColor[2] = { sf::Color(0xF5, 0xF5, 0xF5) ,sf::Color(0xD2, 0x69, 0x1E) };//easier to set color using it
+
 	m_board.resize(8);
 	for (unsigned int i = 0; i < MAP_SIZE; i++) {
 		for (unsigned int j = 0; j < MAP_SIZE; j++) {

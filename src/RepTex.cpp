@@ -1,6 +1,5 @@
 #include "RepTex.h"
 #include "Textures.h"
-#pragma once
 RepTex::RepTex() {
 	//creates a basic tile table without texture
 	m_tiles.resize(8);
@@ -12,29 +11,28 @@ RepTex::RepTex() {
 	
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-void addTextureToTile(sf::Vector2u loc, sf::texture tex) {
+void RepTex::addTextureToTile(sf::Vector2u loc, sf::Texture tex) {
 
+	m_tiles[loc.x][loc.y].setTexture(tex);
 }
 //drawing the board on requested screen..
-void Board::drawBoard(sf::RenderWindow& game_Window) {
-	m_board[1][1].setTexture(Textures::instance().get_Textures(straightPipe_t));
-	m_board[2][1].setTexture(Textures::instance().get_Textures(curvedPipe_t));
+void RepTex::drawBoard(sf::RenderWindow& game_Window) {
+
 	for (unsigned int i = 0; i < 8; i++) {
 		for (unsigned int j = 0; j < 8; j++) {
-			m_board[i][j].drawTile(game_Window);
-			m_board[i][j].setTexture(Textures::instance().get_Textures(curvedPipe_t));
+			m_tiles[i][j].drawTile(game_Window);
 		}
 	}
 }
 
 //rotation function
-void Board::rotateTile(const sf::Vector2i &posTile, float degrees) {
-	m_board[posTile.x][posTile.y].rotate(degrees);
+void RepTex::rotateTile(const sf::Vector2i &posTile, float degrees) {
+	m_tiles[posTile.x][posTile.y].rotate(degrees);
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //returns  a tile in location on board ..
-Tile& Board::getTile(sf::Vector2i pos) {
-	return m_board[pos.x][pos.y];
+Tile& RepTex::getTile(sf::Vector2i pos) {
+	return m_tiles[pos.x][pos.y];
 
 	//return m_Board[int(pos.y/100)][int(pos.x/100)];
 }

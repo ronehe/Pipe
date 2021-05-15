@@ -7,8 +7,15 @@ Controller::Controller()
 	m_bgMenu(Textures::instance().get_Textures(background_t))
 {
 	generateBackgrounds();
-	//updateDataStructures();
+	createCharToTexCoverter();
+	updateDataStructures();
 
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+void Controller::createCharToTexCoverter() {
+	m_charToTexConverter.insert(std::pair<char, pipeTextures>('A', curvedPipe_t));
+	m_charToTexConverter.insert(std::pair<char, pipeTextures>('Y', straightPipe_t));
+	m_charToTexConverter.insert(std::pair<char, pipeTextures>('S', straightPipe_t));
 
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -19,9 +26,16 @@ void Controller::generateBackgrounds() {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::updateDataStructures() {
-	for (auto i = 0; i < MAP_SIZE; i++) {
-		for (auto j = 0; j < MAP_SIZE; j++) {
-		
+	
+	sf::Vector2u loc;
+	sf::Texture curTex;
+	char currentChar;
+	for (loc.x = 0; loc.x < MAP_SIZE; loc.x++) {
+		for (loc.y = 0; loc.y < MAP_SIZE; loc.y++) {
+			currentChar = m_map.what_In_Location(loc);
+			//gets the texture from the map which returns an enum
+			curTex = Textures::instance().get_Textures(m_charToTexConverter[currentChar]);
+			m_mapOnScreen.addTextureToTile(loc,curTex);
 
 		
 		}
@@ -36,7 +50,7 @@ void Controller::startGame() {
 		m_gameWindow.draw(m_background);
 		m_gameWindow.draw(m_bgMenu);
 
-		m_board.drawBoard(m_gameWindow);
+		m_mapOnScreen.drawBoard(m_gameWindow);
 		m_gameWindow.display();
 
 		while (m_gameWindow.pollEvent(event))

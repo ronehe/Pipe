@@ -28,5 +28,12 @@ Textures::Textures() {
 	pic.setSmooth(true);
 	pic.setRepeated(true);
 	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(menu_t, pic));
+	
+	pic.loadFromFile("threePipe.png");
+	pic.setSmooth(true);
+	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(threeWayPipe_t, pic));
+
+
+
 
 }

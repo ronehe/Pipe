@@ -67,18 +67,8 @@ void FileHandler::change_Map(const sf::Vector2i change, const char request) {
 	m_fileHandler[change.x][change.y] = request;
 }
 //--------------------------------------------------
-/*
-* prints the board
-*/
-void FileHandler::print_Map() {
 
-	std::system("cls");
-	unsigned int i = 0;
-	while (i <= m_Size.x) {
-		std::cout << m_fileHandler[i++] << '\n';
-	}
 
-}
 //--------------------------------------------------
 /*
 *return the amount of lines in the vector
@@ -93,7 +83,7 @@ sf::Vector2i FileHandler::get_Size() const {
 * requestd: location from which to return
 */
 
-char FileHandler::what_In_Location(const sf::Vector2i cur_Loc)const {
+char FileHandler::what_In_Location(const sf::Vector2u cur_Loc)const {
 	return m_fileHandler[cur_Loc.x][cur_Loc.y];
 }
 //--------------------------------------------------
