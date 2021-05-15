@@ -9,5 +9,5 @@ public:
 	void rotateTile(const sf::Vector2i& posTile, float);
 	Board();
 private:
-	std::vector<std::vector<Tile>> m_Board;
+	std::vector<std::vector<Tile>> m_board;
 };
