@@ -15,7 +15,7 @@ Controller::Controller()
 void Controller::createCharToTexCoverter() {
 	m_charToTexConverter.insert(std::pair<char, pipeTextures>('A', curvedPipe_t));
 	m_charToTexConverter.insert(std::pair<char, pipeTextures>('Y', straightPipe_t));
-	m_charToTexConverter.insert(std::pair<char, pipeTextures>('S', straightPipe_t));
+	m_charToTexConverter.insert(std::pair<char, pipeTextures>('S', threeWayPipe_t));
 
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -67,8 +67,8 @@ void Controller::startGame() {
 void Controller::rotate(sf::Event event) {
 	if (!(int(event.mouseMove.y / TILE_SIZE) > MAP_SIZE-1))
 		if (event.mouseButton.button == sf::Mouse::Left)
-			m_board.rotateTile(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), DEG90);
+			m_mapOnScreen.rotateTile(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), DEG90);
 		else
-			m_board.rotateTile(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), -DEG90);
+			m_mapOnScreen.rotateTile(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), -DEG90);
 
 }
