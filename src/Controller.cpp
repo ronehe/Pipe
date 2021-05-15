@@ -3,16 +3,32 @@
 #pragma once
 
 Controller::Controller()
-	: m_gameWindow(sf::VideoMode(1200, 800), "Pipes",sf::Style::Close), m_background(Textures::instance().get_Textures(background_t)), m_bgMenu(Textures::instance().get_Textures(background_t))
+	: m_gameWindow(SCREEN_SIZE, "Pipes",sf::Style::Close), m_background(Textures::instance().get_Textures(background_t)),
+	m_bgMenu(Textures::instance().get_Textures(background_t))
 {
-	m_background.setTextureRect(sf::IntRect(100,1200 , 800,800 ));
-	m_bgMenu.setPosition(sf::Vector2f(800.f,0.f));
-	m_bgMenu.setTextureRect(sf::IntRect(0,800, 400, 800));
+	generateBackgrounds();
+	//updateDataStructures();
 
 
-	//m_background.setColor(sf::Color(0xFF, 0x63, 0x47));
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+void Controller::generateBackgrounds() {
+	m_background.setTextureRect(B_G_POS);
+	m_bgMenu.setPosition(MENU_POS);
+	m_bgMenu.setTextureRect(MENU_PLACEMENT_TEX);
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+void Controller::updateDataStructures() {
+	for (auto i = 0; i < MAP_SIZE; i++) {
+		for (auto j = 0; j < MAP_SIZE; j++) {
+		
+
+		
+		}
+	}
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
 void Controller::startGame() {
 	sf::Event event;
 	while (m_gameWindow.isOpen()) {
@@ -27,11 +43,7 @@ void Controller::startGame() {
 		{
 			switch (event.type) {
 			case::sf::Event::MouseButtonPressed:
-				if (!(int(event.mouseMove.y / 100) > 7))
-					if(event.mouseButton.button == sf::Mouse::Left)
-						m_board.rotateTile(sf::Vector2i(int(event.mouseButton.y / 100), int(event.mouseButton.x / 100)), 90.f);
-					else
-						m_board.rotateTile(sf::Vector2i(int(event.mouseButton.y / 100), int(event.mouseButton.x / 100)), -90.f);
+				rotate( event);
 				break;
 			case sf::Event::Closed:
 				m_gameWindow.close();
@@ -39,4 +51,12 @@ void Controller::startGame() {
 			};
 		}
 	}
+}
+void Controller::rotate(sf::Event event) {
+	if (!(int(event.mouseMove.y / TILE_SIZE) > MAP_SIZE-1))
+		if (event.mouseButton.button == sf::Mouse::Left)
+			m_board.rotateTile(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), DEG90);
+		else
+			m_board.rotateTile(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), -DEG90);
+
 }

@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Macros.h"
+
 #pragma once
 class FileHandler{
 	//--------------public--------functions-----------------------//

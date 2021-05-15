@@ -1,6 +1,6 @@
 #include "Tile.h"
 
-Tile::Tile(sf::Color cr, sf::Vector2f size, sf::Vector2f pos)
+Tile::Tile( sf::Vector2f size, sf::Vector2f pos)
 {
 	m_tile.setOrigin(HALF * size); //set the origin to be the middle
 	m_tile.setPosition(pos + HALF * size); 

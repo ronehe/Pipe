@@ -8,7 +8,7 @@
 class Tile {
 public:
 	void drawTile(sf::RenderWindow& game_Window)const;
-	Tile(sf::Color cr, sf::Vector2f size, sf::Vector2f pos);//constarctor gets size and color
+	Tile( sf::Vector2f size, sf::Vector2f pos);//constarctor gets size and color
 	sf::Sprite getShape()const { return  m_tile; };
 	bool contains(sf::Vector2f loc)const { return m_tile.getGlobalBounds().contains(loc); }
 	void setTexture(const sf::Texture & pic);

@@ -1,18 +1,20 @@
-#include "Board.h"
+#include "RepTex.h"
 #include "Textures.h"
-
-Board::Board() {
-	unsigned int pos = 0;
-	const sf::Color CurrentColor[2] = { sf::Color(0xF5, 0xF5, 0xF5) ,sf::Color(0xD2, 0x69, 0x1E) };//easier to set color using it
-	m_board.resize(8);
+#pragma once
+RepTex::RepTex() {
+	//creates a basic tile table without texture
+	m_tiles.resize(8);
 	for (unsigned int i = 0; i < MAP_SIZE; i++) {
 		for (unsigned int j = 0; j < MAP_SIZE; j++) {
-		
-			m_board[i].push_back(Tile( sf::Vector2f(100, 100), sf::Vector2f(board_Start.x + j * 100.f, board_Start.y + (i * 100.f))));
+			m_tiles[i].push_back(Tile(sf::Vector2f(100, 100), sf::Vector2f(board_Start.x + j * 100.f, board_Start.y + (i * 100.f))));
 		}
-	}
+	}	
+	
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+void addTextureToTile(sf::Vector2u loc, sf::texture tex) {
+
+}
 //drawing the board on requested screen..
 void Board::drawBoard(sf::RenderWindow& game_Window) {
 	m_board[1][1].setTexture(Textures::instance().get_Textures(straightPipe_t));

@@ -3,4 +3,5 @@
 								  "Tile.cpp"
 								  "Controller.cpp"
 								  "Textures.cpp"
-								  "FileHandler.cpp")
+								  "FileHandler.cpp"
+								  "RepTex.cpp")

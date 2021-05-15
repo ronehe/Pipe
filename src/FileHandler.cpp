@@ -25,8 +25,8 @@ m_cf:file pointer.
 */
 FileHandler::FileHandler()
 {
-	m_Cf.open("board.txt");
-	set_Size();
+	m_Cf.open("map.txt");
+	//set_Size();
 	set_Map();
 }
 //--------------------------------------------------
@@ -48,10 +48,10 @@ bool FileHandler::set_Size() {
 */
 void FileHandler::set_Map() {
 	std::string temp;
-	std::getline(m_Cf, temp);
+	
 	int i = 0;
 	auto cur = std::string();
-	for (i; i < m_Size.y; i++) {
+	for (i; i < MAP_SIZE; i++) {
 		std::getline(m_Cf, cur);
 
 		m_fileHandler.push_back(cur);
