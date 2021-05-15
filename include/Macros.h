@@ -8,4 +8,10 @@ enum pipeTextures {
 	menu_t=3
 };
 
+const int TOP = 1;
+const int BOT = -1;
+const int LEFT = 2;
+const int RIGHT = -2;
+
+
 const float HALF = float(1) / 2;
