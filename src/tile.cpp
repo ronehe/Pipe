@@ -12,6 +12,7 @@ Tile::Tile( sf::Vector2f size, sf::Vector2f pos)
 
 void Tile::drawTile(sf::RenderWindow& game_Window)const {
 	game_Window.draw(m_tile);
+	game_Window.display();
 }
 
 bool operator==(const Tile& first, const Tile& second) {

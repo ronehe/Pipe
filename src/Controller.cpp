@@ -33,11 +33,9 @@ void Controller::updateDataStructures() {
 	for (loc.x = 0; loc.x < MAP_SIZE; loc.x++) {
 		for (loc.y = 0; loc.y < MAP_SIZE; loc.y++) {
 			currentChar = m_map.what_In_Location(loc);
-			//gets the texture from the map which returns an enum
-			curTex = Textures::instance().get_Textures(m_charToTexConverter[currentChar]);
-			m_mapOnScreen.addTextureToTile(loc,curTex);
 
-		
+			//gets the texture from the map which returns an enum
+			m_mapOnScreen.addTextureToTile(loc,Textures::instance().get_Textures(m_charToTexConverter[currentChar]));
 		}
 	}
 }

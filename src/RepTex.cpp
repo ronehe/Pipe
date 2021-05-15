@@ -8,16 +8,13 @@ RepTex::RepTex() {
 			m_tiles[i].push_back(Tile(sf::Vector2f(100, 100), sf::Vector2f(board_Start.x + j * 100.f, board_Start.y + (i * 100.f))));
 		}
 	}	
-	
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-void RepTex::addTextureToTile(sf::Vector2u loc, sf::Texture tex) {
-
+void RepTex::addTextureToTile(sf::Vector2u loc, const sf::Texture& tex) {
 	m_tiles[loc.x][loc.y].setTexture(tex);
 }
 //drawing the board on requested screen..
 void RepTex::drawBoard(sf::RenderWindow& game_Window) {
-
 	for (unsigned int i = 0; i < 8; i++) {
 		for (unsigned int j = 0; j < 8; j++) {
 			m_tiles[i][j].drawTile(game_Window);

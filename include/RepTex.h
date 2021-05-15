@@ -4,7 +4,7 @@ class RepTex{
 
 
 public:
-	void addTextureToTile(sf::Vector2u loc, sf::Texture tex);
+	void addTextureToTile(sf::Vector2u loc, const sf::Texture& tex);
 
 
 
