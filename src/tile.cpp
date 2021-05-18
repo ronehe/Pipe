@@ -6,6 +6,8 @@ Tile::Tile( sf::Vector2f size, sf::Vector2f pos)
 	m_tile.setPosition(pos + HALF * size); 
 	//m_tile.setColor(sf::Color(0x9A, 0xCD, 0x32));//green
 	m_tile.setColor(sf::Color(0xAD, 0xFF, 0x2F));//green
+	
+
 	m_tile.setTextureRect(sf::IntRect(0, 0, 100, 100));
 	//m_tile.setTexture(sf::Color)
 }
