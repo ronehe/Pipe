@@ -18,6 +18,26 @@ struct Connections {
 	bool m_connectionLeft;
 	bool m_connectionRight;
 };
+struct dir {
+	dir(bool left, bool right, bool up, bool down) {
+		m_left = left;
+		m_right = right;
+		m_up = up;
+		m_down = down;
+	}
+	dir() {
+		m_left = 0;
+		 m_right = 0;
+		 m_up = 0;
+		 m_down = 0;
+	}
+	bool m_left=0;
+	bool m_right=0;
+	bool m_up=0;
+	bool m_down=0;
+};
+
+
 //~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~file handler~~~~~~~~~~~~~~

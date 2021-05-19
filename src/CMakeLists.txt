@@ -8,4 +8,5 @@
 								  "Controller.cpp"
 								  "Textures.cpp"
 								  "FileHandler.cpp"
+								  "Vertex.cpp"
 								  "RepTex.cpp")

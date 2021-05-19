@@ -1,6 +1,7 @@
 #include "CurvedPipe.h"
-CurvedPipe::CurvedPipe( sf::Vector2u loc)
-	: BasePipe( loc)
+CurvedPipe::CurvedPipe(sf::Vector2u loc, std::shared_ptr<Vertex>& vertex)
+
+	: BasePipe( loc, vertex)
 {
 	setTexture(Textures::instance().get_Textures(curvedPipe_t));
 }

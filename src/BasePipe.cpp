@@ -1,6 +1,6 @@
 #include "BasePipe.h"
 
-BasePipe::BasePipe(   sf::Vector2u &loc)
+BasePipe::BasePipe(sf::Vector2u loc, std::shared_ptr<Vertex>& vertex)
 	:m_loc(loc)
 {
 	auto size = PIPE_SIZE;
@@ -11,7 +11,8 @@ BasePipe::BasePipe(   sf::Vector2u &loc)
 	m_pipe.setColor(sf::Color(0xAD, 0xFF, 0x2F));//green
 
 	m_pipe.setTextureRect(sf::IntRect(0, 0, 100, 100));
-	//m_tile.setTexture(sf::Color)
+	vertex = std::make_shared<Vertex>(this);
+	m_vertex = vertex;
 }
 
 void BasePipe::drawPipe(sf::RenderWindow& game_Window)const {

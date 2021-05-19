@@ -16,25 +16,26 @@ RepTex::RepTex(sf::Vector2u mapSize)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void RepTex::addPipe(char p,sf::Vector2u loc){
-	std::shared_ptr<Vertex> pVertex;
 	switch (p)
 	{
 	case 'A':
 		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc, m_graph.getVertexAt(loc));
-		m_graph[loc.x + 1][loc.y]
-		m_graph[loc.x][loc.y-1]
-		m_graph.setConnections()
+		//setting the pointing direction of the vertex represnted by the texture
+		m_graph.getVertexAt(loc).get()->setDir(dir(1, 0, 0, 1));
 		break;
 	case 'Y':
-		m_pipes[loc.x][loc.y] = std::make_shared<StraightPipe>(loc);
+		m_pipes[loc.x][loc.y] = std::make_shared<StraightPipe>(loc, m_graph.getVertexAt(loc));
+		m_graph.getVertexAt(loc).get()->setDir(dir(1,1,0,0));
 		break;
 	case 'S':
-		m_pipes[loc.x][loc.y] = std::make_shared<ThreeWayPipe>(loc);
+		m_pipes[loc.x][loc.y] = std::make_shared<ThreeWayPipe>(loc, m_graph.getVertexAt(loc));
+		m_graph.getVertexAt(loc).get()->setDir(dir(1, 1, 0, 1));
 		break;
 	default:
 		break;
 	}
 }
+
 //drawing the board on requested screen..
 void RepTex::drawBoard(sf::RenderWindow& game_Window) {
 	for (unsigned int i = 0; i < m_pipes.size(); i++) {
