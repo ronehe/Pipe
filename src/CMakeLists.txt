@@ -3,6 +3,7 @@
 								  "BasePipe.cpp"
 								  "CurvedPipe.cpp"
 								  "StraightPipe.cpp"
+								  "ThreeWayPipe.cpp"
 								  "Controller.cpp"
 								  "Textures.cpp"
 								  "FileHandler.cpp"
