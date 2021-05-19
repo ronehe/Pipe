@@ -17,15 +17,16 @@ RepTex::RepTex(sf::Vector2u mapSize)
 void RepTex::addPipe(char p,sf::Vector2u loc) {
 	switch (p)
 	{
-	default:
-		break;
 	case 'A':
 		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc);
 		break;
 	case 'Y':
 		m_pipes[loc.x][loc.y] = std::make_shared<StraightPipe>(loc);
+		break;
 	case 'S':
 		m_pipes[loc.x][loc.y] = std::make_shared<ThreeWayPipe>(loc);
+	default:
+		break;
 	}
 }
 //drawing the board on requested screen..
