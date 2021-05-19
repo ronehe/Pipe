@@ -1,5 +1,6 @@
 #include "Controller.h"
 #include "Textures.h"
+#include "CurvedPipe.h"
 #pragma once
 
 Controller::Controller()
@@ -25,18 +26,15 @@ void Controller::generateBackgrounds() {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::updateDataStructures() {
-	
 	sf::Vector2u loc;
 	sf::Texture curTex;
 	char currentChar;
-	for (loc.x = 0; loc.x < MAP_SIZE; loc.x++) {
-		for (loc.y = 0; loc.y < MAP_SIZE; loc.y++) {
-			currentChar = m_map.what_In_Location(loc);
-			//gets the texture from the map which returns an enum
-			m_mapOnScreen.addTextureToTile(loc,Textures::instance().get_Textures(m_charToTexConverter[currentChar]));
-			m_graph.addVertex(loc);
-		}
-	}
+	auto curved = CurvedPipe(l sf::Vector2f(100, 100), sf::Vector2f(board_Start.x + 0 * 100.f, board_Start.y + (0 * 100.f)));
+
+	//for (loc.x = 0; loc.x < MAP_SIZE; loc.x++) {
+		//for (loc.y = 0; loc.y < MAP_SIZE; loc.y++) {
+			//currentChar = m_map.what_In_Location(loc);
+
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -67,8 +65,8 @@ void Controller::startGame() {
 void Controller::rotate(sf::Event event) {
 	if (!(int(event.mouseMove.y / TILE_SIZE) > MAP_SIZE-1))
 		if (event.mouseButton.button == sf::Mouse::Left)
-			m_mapOnScreen.rotateTile(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), DEG90);
+			m_mapOnScreen.rotatePipe(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), DEG90);
 		else
-			m_mapOnScreen.rotateTile(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), -DEG90);
+			m_mapOnScreen.rotatePipe(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), -DEG90);
 
 }

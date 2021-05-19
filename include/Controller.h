@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include "FileHandler.h"
 #include "RepTex.h"
+#include "Graph.h"
 
 
 //#include "iostream"
@@ -29,7 +30,8 @@ private:
 	sf::Sprite m_background;
 	sf::Sprite m_bgMenu;
 	std::map<char, pipeTextures>m_charToTexConverter;
+	std::map<char, const unsigned int> m_charToDirectionConverter;
 	RepTex m_mapOnScreen;
 	FileHandler m_map;
-	Board m_board;
+	//Board m_board;
 };

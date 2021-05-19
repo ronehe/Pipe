@@ -2,9 +2,9 @@
 #include "Vertex.h"
 #include <vector>
 #include <list>
-class Graph {
+class Graph{
 public:
-	Graph();
+	//Graph();
 private:
-	std::list<std::list<Vertex*&>>
+	std::vector<std::vector<std::shared_ptr<Vertex>>> m_vertices;
 };
