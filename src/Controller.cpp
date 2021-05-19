@@ -31,8 +31,8 @@ void Controller::updateDataStructures() {
 	for (loc.x = 0; loc.x <size.x ; loc.x++) {
 		for (loc.y = 0; loc.y < size.y; loc.y++) {
 			currentChar = m_map.what_In_Location(loc);
-			auto curved = new CurvedPipe(PIPE_SIZE, loc);
-			m_mapOnScreen.addPipe(curved);
+			//auto curved = new CurvedPipe(PIPE_SIZE, loc);
+			m_mapOnScreen.addPipe(currentChar,loc);
 		}
 	}
 }

@@ -1,8 +1,9 @@
 #include "BasePipe.h"
 
-BasePipe::BasePipe( sf::Vector2f size,  sf::Vector2u &loc)
+BasePipe::BasePipe(   sf::Vector2u &loc)
 	:m_loc(loc)
 {
+	auto size = PIPE_SIZE;
 	auto pos= sf::Vector2f(board_Start.x + loc.y * float(PIPE_TEXTURE_SIZE), board_Start.y + (loc.x * float(PIPE_TEXTURE_SIZE)));
 	m_pipe.setOrigin(HALF * size); //set the origin to be the middle
 	m_pipe.setPosition(pos + HALF * size); 

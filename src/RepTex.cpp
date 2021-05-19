@@ -1,6 +1,8 @@
 #include "RepTex.h"
 #include "Textures.h"
 #include "BasePipe.h"
+#include "CurvedPipe.h"
+
 RepTex::RepTex(sf::Vector2u mapSize) 
 {
 	m_pipes.resize(mapSize.x);
@@ -10,9 +12,15 @@ RepTex::RepTex(sf::Vector2u mapSize)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-void RepTex::addPipe(BasePipe* curPipe) {
-	auto loc = curPipe->getLoc();
-	m_pipes[loc.x][loc.y] = curPipe;
+void RepTex::addPipe(char p,sf::Vector2u loc) {
+	switch (p)
+	{
+	default:
+		break;
+	case 'A':
+		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc);
+		break;
+	}
 }
 //drawing the board on requested screen..
 void RepTex::drawBoard(sf::RenderWindow& game_Window) {
