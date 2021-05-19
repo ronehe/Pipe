@@ -21,6 +21,9 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 	{
 	case 'A':
 		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc, m_graph.getVertexAt(loc));
+		m_graph[loc.x + 1][loc.y]
+		m_graph[loc.x][loc.y-1]
+		m_graph.setConnections()
 		break;
 	case 'Y':
 		m_pipes[loc.x][loc.y] = std::make_shared<StraightPipe>(loc);
