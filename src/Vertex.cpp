@@ -1,12 +1,9 @@
 #include "Vertex.h"
 Vertex::Vertex() {
-
-
-	m_dir.insert(std::pair< const unsigned int,Vertex * >(TOP, nullptr));
-	m_dir.insert(std::pair< const unsigned int, Vertex* >(BOT, nullptr));
-	m_dir.insert(std::pair< const unsigned int, Vertex* >(LEFT, nullptr));
-	m_dir.insert(std::pair< const unsigned int, Vertex* >(RIGHT, nullptr));
-
+	m_dir.insert(std::pair<const unsigned int, Vertex* >(TOP, nullptr));
+	m_dir.insert(std::pair<const unsigned int, Vertex* >(BOT, nullptr));
+	m_dir.insert(std::pair<const unsigned int, Vertex* >(LEFT, nullptr));
+	m_dir.insert(std::pair<const unsigned int, Vertex* >(RIGHT, nullptr));
 }
 
 //returns if both of the pointer are connected

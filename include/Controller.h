@@ -32,5 +32,4 @@ private:
 	RepTex m_mapOnScreen;
 	FileHandler m_map;
 	Board m_board;
-
 };

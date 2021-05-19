@@ -16,7 +16,6 @@ void Controller::createCharToTexCoverter() {
 	m_charToTexConverter.insert(std::pair<char, pipeTextures>('A', curvedPipe_t));
 	m_charToTexConverter.insert(std::pair<char, pipeTextures>('Y', straightPipe_t));
 	m_charToTexConverter.insert(std::pair<char, pipeTextures>('S', threeWayPipe_t));
-
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::generateBackgrounds() {
@@ -33,9 +32,9 @@ void Controller::updateDataStructures() {
 	for (loc.x = 0; loc.x < MAP_SIZE; loc.x++) {
 		for (loc.y = 0; loc.y < MAP_SIZE; loc.y++) {
 			currentChar = m_map.what_In_Location(loc);
-
 			//gets the texture from the map which returns an enum
 			m_mapOnScreen.addTextureToTile(loc,Textures::instance().get_Textures(m_charToTexConverter[currentChar]));
+			m_graph.addVertex(loc);
 		}
 	}
 }
@@ -64,6 +63,7 @@ void Controller::startGame() {
 		}
 	}
 }
+
 void Controller::rotate(sf::Event event) {
 	if (!(int(event.mouseMove.y / TILE_SIZE) > MAP_SIZE-1))
 		if (event.mouseButton.button == sf::Mouse::Left)
