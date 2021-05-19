@@ -63,10 +63,10 @@ void Controller::startGame() {
 }
 
 void Controller::rotate(sf::Event event) {
-	if (!(int(event.mouseMove.y / TILE_SIZE) > MAP_SIZE-1))
+	if (!(int(event.mouseMove.y / PIPE_SIZE) > MAP_SIZE-1))
 		if (event.mouseButton.button == sf::Mouse::Left)
-			m_mapOnScreen.rotatePipe(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), DEG90);
+			m_mapOnScreen.rotatePipe(sf::Vector2i(int(event.mouseButton.y / PIPE_SIZE), int(event.mouseButton.x / PIPE_SIZE)), DEG90);
 		else
-			m_mapOnScreen.rotatePipe(sf::Vector2i(int(event.mouseButton.y / TILE_SIZE), int(event.mouseButton.x / TILE_SIZE)), -DEG90);
+			m_mapOnScreen.rotatePipe(sf::Vector2i(int(event.mouseButton.y / PIPE_SIZE), int(event.mouseButton.x / PIPE_SIZE)), -DEG90);
 
 }

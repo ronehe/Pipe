@@ -1,7 +1,9 @@
 #include "BasePipe.h"
 
-BasePipe::BasePipe( sf::Vector2f size, sf::Vector2f pos)
+BasePipe::BasePipe( sf::Vector2f size, const sf::Vector2u &loc)
+	:m_loc(loc)
 {
+	auto pos= sf::Vector2f(board_Start.x + loc.y * float(PIPE_SIZE), board_Start.y + (loc.x * float(PIPE_SIZE))));
 	m_pipe.setOrigin(HALF * size); //set the origin to be the middle
 	m_pipe.setPosition(pos + HALF * size); 
 	//m_tile.setColor(sf::Color(0x9A, 0xCD, 0x32));//green

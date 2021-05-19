@@ -34,6 +34,6 @@ const auto DEG90 = 90.f;
 //~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~tile~~~~~~~~~~~~~~
-const int TILE_SIZE = 100;
+const int PIPE_SIZE = 100;
 const float HALF = float(1) / 2;
 //~~~~~~~~~~~~~~~~~~~~~~
