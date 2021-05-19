@@ -2,6 +2,7 @@
 #include "Textures.h"
 #include "BasePipe.h"
 #include "CurvedPipe.h"
+#include "StraightPipe.h"
 
 RepTex::RepTex(sf::Vector2u mapSize) 
 {
@@ -20,6 +21,8 @@ void RepTex::addPipe(char p,sf::Vector2u loc) {
 	case 'A':
 		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc);
 		break;
+	case 'Y':
+		m_pipes[loc.x][loc.y] = std::make_shared<StraightPipe>(loc);
 	}
 }
 //drawing the board on requested screen..

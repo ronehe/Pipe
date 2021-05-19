@@ -2,6 +2,7 @@
 								  #"Board.cpp"
 								  "BasePipe.cpp"
 								  "CurvedPipe.cpp"
+								  "StraightPipe.cpp"
 								  "Controller.cpp"
 								  "Textures.cpp"
 								  "FileHandler.cpp"
