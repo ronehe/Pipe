@@ -10,7 +10,6 @@ Controller::Controller()
 	generateBackgrounds();
 	createCharToTexCoverter();
 	updateDataStructures();
-
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::createCharToTexCoverter() {
@@ -27,14 +26,18 @@ void Controller::generateBackgrounds() {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::updateDataStructures() {
 	sf::Vector2u loc;
+	sf::Vector2f locOnWindow;
 	sf::Texture curTex;
 	char currentChar;
-	auto curved = CurvedPipe(l sf::Vector2f(100, 100), sf::Vector2f(board_Start.x + 0 * 100.f, board_Start.y + (0 * 100.f)));
 
-	//for (loc.x = 0; loc.x < MAP_SIZE; loc.x++) {
-		//for (loc.y = 0; loc.y < MAP_SIZE; loc.y++) {
-			//currentChar = m_map.what_In_Location(loc);
-
+	for (loc.x = 0; loc.x < MAP_SIZE; loc.x++) {
+		for (loc.y = 0; loc.y < MAP_SIZE; loc.y++) {
+			currentChar = m_map.what_In_Location(loc);
+			locOnWindow = sf::Vector2f(board_Start.x + loc.y * 100.f, board_Start.y + (loc.x * 100.f));
+			auto curved = new CurvedPipe(PIPE_SIZE, locOnWindow);
+			m_mapOnScreen.addPipe(curved, loc);
+		}
+	}
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
