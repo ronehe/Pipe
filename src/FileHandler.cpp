@@ -26,8 +26,9 @@ m_cf:file pointer.
 FileHandler::FileHandler()
 {
 	m_Cf.open("map.txt");
-	//set_Size();
+	set_Size();
 	set_Map();
+
 }
 //--------------------------------------------------
 /*
@@ -35,8 +36,9 @@ FileHandler::FileHandler()
 *m_size:size of the vector.
 */
 bool FileHandler::set_Size() {
-	//if(!m_Cf.eof())
-	m_Cf >> m_Size.y >> m_Size.x >> m_Time;
+	
+	m_Cf >> m_Size.x >> m_Size.y;
+	m_Cf.get();
 	return (!m_Cf.fail());
 
 }
@@ -73,8 +75,9 @@ void FileHandler::change_Map(const sf::Vector2i change, const char request) {
 /*
 *return the amount of lines in the vector
 */
-sf::Vector2i FileHandler::get_Size() const {
+sf::Vector2u FileHandler::get_Size() const {
 
+	
 	return m_Size;
 }
 //--------------------------------------------------

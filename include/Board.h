@@ -1,3 +1,4 @@
+/*
 #include "Tile.h"
 #pragma once
 class Board {
@@ -11,3 +12,4 @@ public:
 private:
 	std::vector<std::vector<Tile>> m_board;
 };
+*/

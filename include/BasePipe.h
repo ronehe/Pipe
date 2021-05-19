@@ -9,9 +9,10 @@
 class BasePipe{
 public:
 	void drawPipe(sf::RenderWindow& game_Window)const;
-	BasePipe( sf::Vector2f size, const sf::Vector2f &loc);//constarctor gets size and color
+	BasePipe( sf::Vector2f size,  sf::Vector2u &loc);//constarctor gets size and color
 	void setTexture(const sf::Texture& pic);
 	virtual void rotate(float); //all do the same except sink
+	 sf::Vector2u getLoc() const ;
 	//~~~~~~~~~~~~~~~~~~~private functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 private:
 	//~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

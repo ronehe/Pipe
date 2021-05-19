@@ -17,7 +17,7 @@ public:
 
 	char what_In_Location(const sf::Vector2u cur_Loc)const;// reuturns elemnt on board 
 
-	sf::Vector2i get_Size() const;//returns size of the the vector for controller 
+	sf::Vector2u get_Size() const;//returns size of the the vector for controller 
 
 	bool rebuild_Map();
 
@@ -36,7 +36,7 @@ private:
 
 	//------------------members-----------------------//
 private:
-	sf::Vector2i m_Size;
+	sf::Vector2u m_Size;
 	std::vector<std::string>m_fileHandler;
 	std::ifstream m_Cf;
 	int m_Time;

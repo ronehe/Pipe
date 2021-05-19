@@ -21,7 +21,6 @@ private:
 	//creates the window and the outlines
 	void generateBackgrounds();
 	void updateDataStructures();
-	void createCharToTexCoverter();
 	void rotate(sf::Event event);
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~//
@@ -31,7 +30,8 @@ private:
 	sf::Sprite m_bgMenu;
 	std::map<char, pipeTextures>m_charToTexConverter;
 	std::map<char, const unsigned int> m_charToDirectionConverter;
-	RepTex m_mapOnScreen;
 	FileHandler m_map;
+	RepTex m_mapOnScreen;
+
 	//Board m_board;
 };
