@@ -1,10 +1,11 @@
 #pragma once
 #include "Macros.h"
+class BasePipe;
 class Vertex {
 public:
-	Vertex();
+	Vertex(BasePipe*);
 	//bool Vertex::isThereEdge(const unsigned int dir, Vertex* pToPipe) const;
 private:
-	std::map<const unsigned int, Vertex*> m_dir; //directions of the edges
-	//std::shared_ptr<BasePipe> m_pipe;
+	BasePipe* m_pipe;
+	Connections m_connections;
 };

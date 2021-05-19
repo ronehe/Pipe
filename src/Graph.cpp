@@ -1,9 +1,13 @@
 #include "Graph.h"
 #include <memory>
 
-Graph::Graph() {
-	m_vertices.resize(8);
-	for (unsigned int i = 0; i < MAP_SIZE; i++) {
-		for (unsigned int j = 0; j < MAP_SIZE; j++) {
-			m_vertices[i].push_back(std::make_shared<Vertex>);
+Graph::Graph(const sf::Vector2u &mapSize) {
+	m_vertices.resize(mapSize.x);
+	for (unsigned int i = 0; i < mapSize.x;i++) {
+		m_vertices[i].resize(mapSize.y);
+	}
+}
+
+std::shared_ptr<Vertex>& Graph::getVertexAt(const sf::Vector2u& loc) {
+	return m_vertices[loc.x][loc.y];
 }

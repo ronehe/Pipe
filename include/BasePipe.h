@@ -18,6 +18,7 @@ private:
 	//~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 private:
 	sf::Sprite m_pipe;
-	std::shared_ptr<Vertex> m_vertex;
 	const sf::Vector2u m_loc;
+protected:
+	std::shared_ptr<Vertex> m_vertex;
 };

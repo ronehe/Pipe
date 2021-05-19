@@ -1,4 +1,5 @@
 #include "BasePipe.h"
+#include "Graph.h"
 #pragma once
 class RepTex{
 public:
@@ -8,5 +9,5 @@ public:
 	RepTex(sf::Vector2u mapSize);
 private:
 	std::vector<std::vector<std::shared_ptr<BasePipe>>> m_pipes;
-	//Graph m_graph;
+	Graph m_graph;
 };

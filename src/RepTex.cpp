@@ -5,7 +5,8 @@
 #include "StraightPipe.h"
 #include "ThreeWayPipe.h"
 
-RepTex::RepTex(sf::Vector2u mapSize) 
+RepTex::RepTex(sf::Vector2u mapSize)
+	: m_graph(mapSize)
 {
 	m_pipes.resize(mapSize.x);
 	for (unsigned int i = 0; i < mapSize.x;i++) {
@@ -14,17 +15,19 @@ RepTex::RepTex(sf::Vector2u mapSize)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-void RepTex::addPipe(char p,sf::Vector2u loc) {
+void RepTex::addPipe(char p,sf::Vector2u loc){
+	std::shared_ptr<Vertex> pVertex;
 	switch (p)
 	{
 	case 'A':
-		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc);
+		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc, m_graph.getVertexAt(loc));
 		break;
 	case 'Y':
 		m_pipes[loc.x][loc.y] = std::make_shared<StraightPipe>(loc);
 		break;
 	case 'S':
 		m_pipes[loc.x][loc.y] = std::make_shared<ThreeWayPipe>(loc);
+		break;
 	default:
 		break;
 	}

@@ -12,10 +12,12 @@ enum pipeTextures {
 //~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~~graph~~~~~~~~~~~~~
-const int TOP = 1;
-const int BOT = -1;
-const int LEFT = 2;
-const int RIGHT = -2;
+struct Connections {
+	bool m_connectionAbove;
+	bool m_connectionBelow;
+	bool m_connectionLeft;
+	bool m_connectionRight;
+};
 //~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~file handler~~~~~~~~~~~~~~

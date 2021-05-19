@@ -1,5 +1,6 @@
 ﻿target_sources (oop2_ex04 PRIVATE "main.cpp"
 								  #"Board.cpp"
+								  "Graph.cpp"
 								  "BasePipe.cpp"
 								  "CurvedPipe.cpp"
 								  "StraightPipe.cpp"

@@ -4,5 +4,5 @@
 
 class StraightPipe : public BasePipe {
 public:
-	StraightPipe(sf::Vector2u loc);//constarctor gets size and color
+	StraightPipe(sf::Vector2u loc, std::shared_ptr<Vertex>& vertexLoc);//constarctor gets size and color
 };
