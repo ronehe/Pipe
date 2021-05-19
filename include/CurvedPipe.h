@@ -5,5 +5,6 @@
 class CurvedPipe : public BasePipe {
 public:
 	using BasePipe::BasePipe;
-	CurvedPipe() { setTexture(Textures::instance().get_Textures(curvedPipe_t)); }//constarctor gets size and color
+	CurvedPipe( sf::Vector2f size, sf::Vector2f pos);//constarctor gets size and color
+	CurvedPipe(sf::)
 };

@@ -16,7 +16,7 @@ BasePipe::BasePipe( sf::Vector2f size, const sf::Vector2u &loc)
 void BasePipe::drawPipe(sf::RenderWindow& game_Window)const {
 	game_Window.draw(m_pipe);
 }
-
+t 
 void BasePipe::setTexture(const sf::Texture& pic) {
 	m_pipe.setTexture(pic);
 }

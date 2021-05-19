@@ -36,4 +36,5 @@ const auto DEG90 = 90.f;
 //~~~~~~~~tile~~~~~~~~~~~~~~
 const int PIPE_SIZE = 100;
 const float HALF = float(1) / 2;
+const sf::Vector2f PIPE_SIZE = sf::Vector2f(100, 100);
 //~~~~~~~~~~~~~~~~~~~~~~
