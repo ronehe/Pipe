@@ -1,14 +1,12 @@
 #include "RepTex.h"
 #include "Textures.h"
+#include "BasePipe.h"
 RepTex::RepTex() {
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-void RepTex::addPipe(sf::Vector2u loc, const char c) {
-	switch (c) {
-	case 'A':
-		m_pipes[loc.x][loc.y] = (BasePipe(sf::Vector2f(100, 100), sf::Vector2f(board_Start.x + loc.y * 100.f, board_Start.y + (loc.x * 100.f))));
-	}
+void RepTex::addPipe(BasePipe*, sf::Vector2u) {
+	m_pipes[][]
 }
 //drawing the board on requested screen..
 void RepTex::drawBoard(sf::RenderWindow& game_Window) {

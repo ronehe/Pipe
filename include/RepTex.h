@@ -2,7 +2,7 @@
 #pragma once
 class RepTex{
 public:
-	void addPipe(sf::Vector2u loc, const sf::Texture& tex);
+	void addPipe(BasePipe*);
 	void drawBoard(sf::RenderWindow& game_Window);
 	void rotatePipe(const sf::Vector2i& posTile, float);
 	RepTex();
