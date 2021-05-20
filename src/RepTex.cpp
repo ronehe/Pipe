@@ -4,6 +4,10 @@
 #include "CurvedPipe.h"
 #include "StraightPipe.h"
 #include "ThreeWayPipe.h"
+#include "Sink.h"
+#include "Tap.h"
+
+
 
 RepTex::RepTex(sf::Vector2u mapSize)
 	: m_graph(mapSize)
@@ -31,6 +35,15 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 		m_pipes[loc.x][loc.y] = std::make_shared<ThreeWayPipe>(loc, m_graph.getVertexAt(loc));
 		m_graph.getVertexAt(loc).get()->setDir(dir(1, 1, 0, 1));
 		break;
+	case 'K':
+		m_pipes[loc.x][loc.y] = std::make_shared<Sink>(loc, m_graph.getVertexAt(loc));
+		m_graph.getVertexAt(loc).get()->setDir(dir(1, 1, 0, 1));
+		break;
+	case 'B':
+		m_pipes[loc.x][loc.y] = std::make_shared<Tap>(loc, m_graph.getVertexAt(loc));
+		m_graph.getVertexAt(loc).get()->setDir(dir(1, 1, 0, 1));
+		break;
+
 	default:
 		break;
 	}

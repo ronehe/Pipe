@@ -7,7 +7,9 @@ enum pipeTextures {
 	straightPipe_t=1,
 	background_t = 2,
 	menu_t=3,
-	threeWayPipe_t=4
+	threeWayPipe_t=4,
+	sink_t =5,
+	tap_t=6
 };
 //~~~~~~~~~~~~~~~~~~~~~~
 

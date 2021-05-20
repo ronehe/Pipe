@@ -9,4 +9,6 @@
 								  "Textures.cpp"
 								  "FileHandler.cpp"
 								  "Vertex.cpp"
+								  "Sink.cpp"
+								  "Tap.cpp"
 								  "RepTex.cpp")

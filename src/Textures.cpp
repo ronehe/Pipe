@@ -32,6 +32,14 @@ Textures::Textures() {
 	pic.loadFromFile("threePipe.png");
 	pic.setSmooth(true);
 	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(threeWayPipe_t, pic));
+	
+	pic.loadFromFile("k.png");
+	pic.setSmooth(true);
+	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(sink_t, pic));
+
+	pic.loadFromFile("b.png");
+	pic.setSmooth(true);
+	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(tap_t, pic));
 
 
 

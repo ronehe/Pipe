@@ -11,6 +11,9 @@ configure_file ("bg2.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("threePipe.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("menu.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("map.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("k.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("b.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 
 
