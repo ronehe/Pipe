@@ -37,7 +37,7 @@ struct dir {
 		m_dir[3] = false;
 		
 	}
-	bool m_dir[4] = {0,0,0,0};
+	bool m_dir[4];
 
 };
 
