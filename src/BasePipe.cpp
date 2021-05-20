@@ -31,7 +31,7 @@ void BasePipe::rotate(float degrees) {
 		direction *= -1;
 	for (int i = 0; i < 4; i++) {
 		if (lastDir.m_dir[i] == true) {
-		
+		//sets the correct rotation using mudolo logic
 			cur.m_dir[(4+((i + direction) % 4))%4] = true;
 		}
 	}
