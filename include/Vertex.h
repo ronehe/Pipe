@@ -7,6 +7,7 @@ public:
 	//bool Vertex::isThereEdge(const unsigned int dir, Vertex* pToPipe) const;
 	void addNeighboors(Vertex* up, Vertex* right, Vertex* left, Vertex* down);
 	void setDir(dir inpDir);
+	dir getDir()const;
 private:
 	BasePipe* m_pipe;
 	Connections m_connections;

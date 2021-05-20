@@ -21,22 +21,24 @@ struct Connections {
 	bool m_connectionRight;
 };
 struct dir {
-	dir(bool left, bool right, bool up, bool down) {
-		m_left = left;
-		m_right = right;
-		m_up = up;
-		m_down = down;
+	dir(bool up, bool right, bool down, bool left) {
+		
+		m_dir[0] = up;
+		m_dir[1] = right;
+		m_dir[2] = down;
+		m_dir[3] = left;
+
 	}
-	dir() {
-		m_left = 0;
-		 m_right = 0;
-		 m_up = 0;
-		 m_down = 0;
+	dir()
+	{
+		m_dir[0] = false;
+		m_dir[1] = false;
+		m_dir[2] = false;
+		m_dir[3] = false;
+		
 	}
-	bool m_left=0;
-	bool m_right=0;
-	bool m_up=0;
-	bool m_down=0;
+	bool m_dir[4] = {0,0,0,0};
+
 };
 
 

@@ -14,6 +14,10 @@ void Vertex::addNeighboors(Vertex* up, Vertex* right, Vertex* left, Vertex *down
 	m_right = right;
 
 }
+dir Vertex::getDir()const {
+	return m_dir;
+}
+
 /*returns if both of the pointer are connected
 bool Vertex::isThereEdge(const unsigned int dir, Vertex* pToPipe) const {
 

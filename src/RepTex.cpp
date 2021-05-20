@@ -25,23 +25,18 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 	case 'A':
 		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc, m_graph.getVertexAt(loc));
 		//setting the pointing direction of the vertex represnted by the texture
-		m_graph.getVertexAt(loc).get()->setDir(dir(1, 0, 0, 1));
 		break;
 	case 'Y':
 		m_pipes[loc.x][loc.y] = std::make_shared<StraightPipe>(loc, m_graph.getVertexAt(loc));
-		m_graph.getVertexAt(loc).get()->setDir(dir(1,1,0,0));
 		break;
 	case 'S':
 		m_pipes[loc.x][loc.y] = std::make_shared<ThreeWayPipe>(loc, m_graph.getVertexAt(loc));
-		m_graph.getVertexAt(loc).get()->setDir(dir(1, 1, 0, 1));
 		break;
 	case 'K':
 		m_pipes[loc.x][loc.y] = std::make_shared<Sink>(loc, m_graph.getVertexAt(loc));
-		m_graph.getVertexAt(loc).get()->setDir(dir(1, 1, 0, 1));
 		break;
 	case 'B':
 		m_pipes[loc.x][loc.y] = std::make_shared<Tap>(loc, m_graph.getVertexAt(loc));
-		m_graph.getVertexAt(loc).get()->setDir(dir(1, 1, 0, 1));
 		break;
 
 	default:
