@@ -43,3 +43,7 @@ sf::Vector2u BasePipe::getLoc() const{
 
 	return m_loc;
 }
+
+void BasePipe::changeColor(const sf::Color& color) {
+	m_pipe.setColor(color);
+}

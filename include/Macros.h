@@ -14,12 +14,6 @@ enum pipeTextures {
 //~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~~graph~~~~~~~~~~~~~
-struct Connections {
-	bool m_connectionAbove;
-	bool m_connectionBelow;
-	bool m_connectionLeft;
-	bool m_connectionRight;
-};
 struct dir {
 	dir(bool up, bool right, bool down, bool left) {
 		

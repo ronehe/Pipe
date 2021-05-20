@@ -37,6 +37,7 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 		break;
 	case 'B':
 		m_pipes[loc.x][loc.y] = std::make_shared<Tap>(loc, m_graph.getVertexAt(loc));
+		m_graph.setSourceVertex(loc);
 		break;
 
 	default:
@@ -57,5 +58,6 @@ void RepTex::drawBoard(sf::RenderWindow& game_Window) {
 void RepTex::rotatePipe(const sf::Vector2i &posPipe, float degrees) {
 	
 	m_pipes[posPipe.x][posPipe.y]->rotate(degrees);
+	m_graph.updateEdges();
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

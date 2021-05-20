@@ -14,6 +14,7 @@ public:
 	void setTexture(const sf::Texture& pic);
 	virtual void rotate(float); //all do the same except sink
 	 sf::Vector2u getLoc() const ;
+	 void changeColor(const sf::Color&);
 	//~~~~~~~~~~~~~~~~~~~private functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 private:
 	//~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

@@ -12,10 +12,13 @@ void Vertex::addNeighboors(Vertex* up, Vertex* right, Vertex* left, Vertex *down
 	m_down = down;
 	m_left = left;
 	m_right = right;
-
 }
 dir Vertex::getDir()const {
 	return m_dir;
+}
+
+void Vertex::changeColor(const sf::Color& color) {
+	m_pipe->changeColor(color);
 }
 
 /*returns if both of the pointer are connected

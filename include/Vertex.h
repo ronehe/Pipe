@@ -8,9 +8,9 @@ public:
 	void addNeighboors(Vertex* up, Vertex* right, Vertex* left, Vertex* down);
 	void setDir(dir inpDir);
 	dir getDir()const;
+	void changeColor(const sf::Color& color);
 private:
 	BasePipe* m_pipe;
-	Connections m_connections;
 	
 	Vertex* m_up;
 	Vertex* m_right;
