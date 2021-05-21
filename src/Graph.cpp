@@ -3,7 +3,7 @@
 #include "Sink.h"
 
 Graph::Graph(const sf::Vector2u& mapSize)
-	:m_graphSize(mapSize) {
+	:m_graphSize(mapSize) ,m_DestConnected(false){
 	m_vertices.resize(mapSize.x);
 	for (unsigned int i = 0; i < mapSize.x;i++) {
 		m_vertices[i].resize(mapSize.y);
@@ -76,7 +76,7 @@ void Graph::updateVertexNeighboors(int row, int col) {
 }
 
 	
-void Graph::BFS() const{
+void Graph::BFS() {
 	// Mark all the vertices as not visited
 	std::vector<std::vector<bool>> visited;
 	visited.resize(m_graphSize.x);
@@ -104,6 +104,8 @@ void Graph::BFS() const{
 	{
 		// Dequeue a vertex from queue and print it
 		s = queue.front();
+		m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::White);
+
 		queue.pop_front();
 
 		// Get all adjacent vertices of the dequeued
@@ -115,9 +117,10 @@ void Graph::BFS() const{
 			if (!visited[curLoc.x][curLoc.y])
 			{
 				visited[curLoc.x][curLoc.y] = true;
-				m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::Blue);
+				m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::White);
 				if (m_vertices[curLoc.x][curLoc.y].get()->pipeIsSink()) {
-					throw std::exception();
+					m_DestConnected = true;
+					break;
 				}
 				queue.push_back(*i);
 			}
@@ -125,3 +128,6 @@ void Graph::BFS() const{
 	}
 }
 
+bool Graph::isDestConnected() {
+	return m_DestConnected;
+}

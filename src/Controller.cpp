@@ -36,10 +36,14 @@ void Controller::startGame() {
 		m_gameWindow.clear();
 		m_gameWindow.draw(m_background);
 		m_gameWindow.draw(m_bgMenu);
-
+		
 		m_mapOnScreen.drawBoard(m_gameWindow);
 		m_gameWindow.display();
+		if (m_mapOnScreen.isLvlFinished()) {
+			std::cout << "yeahhh";
+			//loadNewMap();
 
+		}
 		while (m_gameWindow.pollEvent(event))
 		{
 			switch (event.type) {

@@ -10,6 +10,7 @@ public:
 	RepTex(sf::Vector2u mapSize);
 	void initialize(FileHandler &map);
 	void resetColors();
+	bool isLvlFinished();
 private:
 	std::vector<std::vector<std::shared_ptr<BasePipe>>> m_pipes;
 	Graph m_graph;

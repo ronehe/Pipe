@@ -89,4 +89,11 @@ void RepTex::resetColors() {
 		}
 	}
 }
+
+bool RepTex::isLvlFinished() {
+	return m_graph.isDestConnected();
+}
+
+
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
