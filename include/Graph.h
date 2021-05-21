@@ -13,5 +13,4 @@ private:
 	std::vector<std::vector<std::shared_ptr<Vertex>>> m_vertices;
 	std::vector<std::shared_ptr<Vertex>> m_sourceVertices; //starting points for DFS/BFS
 	const sf::Vector2u m_graphSize;
-	std::list<std::shared_ptr<Vertex>> adjList;
 };
