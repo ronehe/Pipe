@@ -12,6 +12,6 @@ public:
 	void resetColors();
 	bool isLvlFinished();
 private:
-	std::vector<std::vector<std::shared_ptr<BasePipe>>> m_pipes;
+	std::vector<std::vector<std::unique_ptr<BasePipe>>> m_pipes;
 	Graph m_graph;
 };

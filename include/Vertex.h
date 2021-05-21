@@ -13,7 +13,7 @@ public:
 	void setDir(const Dir& dir);
 	void changeColor(const sf::Color& color);
 	void rotate(int direction);
-	bool isPointingToDir( Directions);
+	bool isPointingToDir(Directions);
 	void removeNeighbors();
 	sf::Vector2u getloc()const;
 	bool pipeIsSink() const;

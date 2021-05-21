@@ -23,24 +23,25 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 	switch (p)
 	{
 	case 'A':
-		m_pipes[loc.x][loc.y] = std::make_shared<CurvedPipe>(loc, m_graph.getVertexAt(loc));
+		m_pipes[loc.x][loc.y] = std::make_unique<CurvedPipe>(loc, m_graph.getVertexAt(loc));
 		//setting the pointing direction of the vertex represnted by the texture
 		break;
 	case 'Y':
-		m_pipes[loc.x][loc.y] = std::make_shared<StraightPipe>(loc, m_graph.getVertexAt(loc));
+		m_pipes[loc.x][loc.y] = std::make_unique<StraightPipe>(loc, m_graph.getVertexAt(loc));
 		break;
 	case 'S':
-		m_pipes[loc.x][loc.y] = std::make_shared<ThreeWayPipe>(loc, m_graph.getVertexAt(loc));
+		m_pipes[loc.x][loc.y] = std::make_unique<ThreeWayPipe>(loc, m_graph.getVertexAt(loc));
 		break;
 	case 'K':
-		m_pipes[loc.x][loc.y] = std::make_shared<Sink>(loc, m_graph.getVertexAt(loc));
+		m_pipes[loc.x][loc.y] = std::make_unique<Sink>(loc, m_graph.getVertexAt(loc));
 		break;
 	case 'B':
-		m_pipes[loc.x][loc.y] = std::make_shared<Tap>(loc, m_graph.getVertexAt(loc));
+		m_pipes[loc.x][loc.y] = std::make_unique<Tap>(loc, m_graph.getVertexAt(loc));
 		m_graph.setSourceVertex(loc);
 		break;
 
 	default:
+		throw std::invalid_argument((p + "is not allowed"));
 		break;
 	}
 }
