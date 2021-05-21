@@ -1,7 +1,8 @@
 #include "Graph.h"
 #include <memory>
 
-Graph::Graph(const sf::Vector2u &mapSize) {
+Graph::Graph(const sf::Vector2u &mapSize) 
+	: m_graphSize(mapSize) {
 	m_vertices.resize(mapSize.x);
 	for (unsigned int i = 0; i < mapSize.x;i++) {
 		m_vertices[i].resize(mapSize.y);
@@ -26,6 +27,44 @@ void Graph::updateEdges() {
 				}
 				else 
 					m_vertices[row][col].get()->changeColor(sf::Color::Green);
+		}
+	}
+}
+
+void Graph::BFS() const{
+	// Mark all the vertices as not visited
+	std::vector<std::vector<bool>>  ;
+	for (int i = 0; i < V; i++)
+		visited[i] = false;
+
+	// Create a queue for BFS
+	std::list<int> queue;
+
+	// Mark the current node as visited and enqueue it
+	visited[s] = true;
+	queue.push_back(s);
+
+	// 'i' will be used to get all adjacent
+	// vertices of a vertex
+	list<int>::iterator i;
+
+	while (!queue.empty())
+	{
+		// Dequeue a vertex from queue and print it
+		s = queue.front();
+		cout << s << " ";
+		queue.pop_front();
+
+		// Get all adjacent vertices of the dequeued
+		// vertex s. If a adjacent has not been visited,
+		// then mark it visited and enqueue it
+		for (i = adj[s].begin(); i != adj[s].end(); ++i)
+		{
+			if (!visited[*i])
+			{
+				visited[*i] = true;
+				queue.push_back(*i);
+			}
 		}
 	}
 }

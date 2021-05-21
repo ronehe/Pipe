@@ -11,6 +11,8 @@ public:
 	void changeColor(const sf::Color& color);
 private:
 	BasePipe* m_pipe;
+
+	std::list<std::shared_ptr<Vertex>> m_neighbors;
 	
 	Vertex* m_up;
 	Vertex* m_right;

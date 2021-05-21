@@ -8,8 +8,10 @@ public:
 	std::shared_ptr<Vertex>& getVertexAt(const sf::Vector2u& loc);
 	void setSourceVertex(const sf::Vector2u& loc);
 	void updateEdges();
+	void BFS() const;
 private:
 	std::vector<std::vector<std::shared_ptr<Vertex>>> m_vertices;
 	std::vector<std::shared_ptr<Vertex>> m_sourceVertices; //starting points for DFS/BFS
+	const sf::Vector2u m_graphSize;
 	
 };
