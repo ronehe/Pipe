@@ -1,6 +1,8 @@
 #pragma once
 #include "Macros.h"
 #include <List>
+#include <unordered_set>
+
 class BasePipe;
 class Vertex {
 public:
@@ -17,8 +19,7 @@ public:
 
 private:
 	BasePipe* m_pipe;
-
-	std::list<std::shared_ptr<Vertex>> m_neighbors;
+	std::unordered_set<std::shared_ptr<Vertex>> m_neighbors;
 	Vertex* m_up;
 	Vertex* m_right;
 	Vertex* m_left;

@@ -18,9 +18,7 @@ void Vertex::changeColor(const sf::Color& color) {
 	m_pipe->changeColor(color);
 }
 void Vertex::addNeighbor(const std::shared_ptr<Vertex>& neighbor) {
-	auto it =std::find(m_neighbors.begin(), m_neighbors.end(), neighbor);
-	if(it==m_neighbors.end())//if didnt find
-		m_neighbors.push_back(neighbor);
+		m_neighbors.insert(neighbor);
 }
 
 
