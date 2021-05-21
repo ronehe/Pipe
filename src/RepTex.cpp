@@ -59,6 +59,7 @@ void RepTex::initialize(FileHandler &map) {
 	}
 
 	m_graph.initializeEdges();
+	m_graph.BFS();
 }
 
 //drawing the board on requested screen..
@@ -73,8 +74,19 @@ void RepTex::drawBoard(sf::RenderWindow& game_Window) {
 //rotation function
 void RepTex::rotatePipe(const sf::Vector2u &posPipe, float degrees) {
 	
+	resetColors(); //for resetting colors in case of disconnection of pipes from tap
 	m_pipes[posPipe.x][posPipe.y]->rotate(degrees);
+	m_pipes[posPipe.x][posPipe.y]->changeColor(UnonnectedPipeColor);
 	m_graph.rotate(posPipe,int(degrees/std::abs(degrees)));
 	//m_graph.updateEdges();
+	
+}
+
+void RepTex::resetColors() {
+	for (auto& row : m_pipes) {
+		for (auto& col : row) {
+			col->changeColor(UnonnectedPipeColor);
+		}
+	}
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

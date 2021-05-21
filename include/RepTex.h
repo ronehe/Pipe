@@ -9,6 +9,7 @@ public:
 	void rotatePipe(const sf::Vector2u& posTile, float);
 	RepTex(sf::Vector2u mapSize);
 	void initialize(FileHandler &map);
+	void resetColors();
 private:
 	std::vector<std::vector<std::shared_ptr<BasePipe>>> m_pipes;
 	Graph m_graph;

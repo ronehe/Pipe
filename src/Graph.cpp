@@ -1,5 +1,6 @@
 #include "Graph.h"
 #include <memory>
+#include "Sink.h"
 
 Graph::Graph(const sf::Vector2u& mapSize)
 	:m_graphSize(mapSize) {
@@ -30,6 +31,7 @@ void Graph::initializeEdges() {
 void Graph::rotate(const sf::Vector2u& posPipe, int direction) {
 	m_vertices[posPipe.x][posPipe.y].get()->rotate(direction);
 	uptadeAfterRotate(posPipe);
+	BFS();
 }
 void Graph::uptadeAfterRotate(const sf::Vector2u& posPipe) {
 	
@@ -72,13 +74,18 @@ void Graph::updateVertexNeighboors(int row, int col) {
 		}
 	}
 }
+
 	
 void Graph::BFS() const{
 	// Mark all the vertices as not visited
 	std::vector<std::vector<bool>> visited;
-	for (int i = 0; i < m_graphSize.x; i++)
-		for(int j = 0; j < m_graphSize.y; j++)
+	visited.resize(m_graphSize.x);
+	for (int i = 0; i < m_graphSize.x; i++) {
+		visited[i].resize(m_graphSize.y);
+		for (int j = 0; j < m_graphSize.y; j++) {
 			visited[i][j] = false;
+		}
+	}
 
 	// Create a queue for BFS
 	std::list<Vertex*> queue;
@@ -108,6 +115,10 @@ void Graph::BFS() const{
 			if (!visited[curLoc.x][curLoc.y])
 			{
 				visited[curLoc.x][curLoc.y] = true;
+				m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::Blue);
+				if (m_vertices[curLoc.x][curLoc.y].get()->pipeIsSink()) {
+					throw std::exception();
+				}
 				queue.push_back(*i);
 			}
 		}

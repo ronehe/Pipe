@@ -16,6 +16,7 @@ public:
 	bool isPointingToDir( Directions);
 	void removeNeighbors();
 	sf::Vector2u getloc()const;
+	bool pipeIsSink() const;
 	//void removeNeighbor(Vertex* cur);
 	std::unordered_set <Vertex*>::iterator getBeginNeighbor();
 	std::unordered_set <Vertex*>::iterator getEndNeighbor();

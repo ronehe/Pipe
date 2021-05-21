@@ -1,5 +1,6 @@
 #include "Vertex.h"
 #include "BasePipe.h"
+#include "Sink.h"
 Vertex::Vertex(BasePipe* ptrPipe) 
 {
 	m_dir = UNDEFINED_DIR;
@@ -47,6 +48,10 @@ void Vertex:: removeNeighbors() {
 	}
 	m_neighbors.clear();
 
+}
+
+bool Vertex::pipeIsSink()const{
+	return dynamic_cast<Sink*>(m_pipe);
 }
 /*
 * smart removing function maybe used later on 
