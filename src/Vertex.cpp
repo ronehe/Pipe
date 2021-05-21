@@ -12,12 +12,19 @@ void Vertex::setDir(const Dir & dir) {
 bool Vertex::isPointingToDir(Directions cur) {
 	return m_dir[cur];
 }
-
-
+sf::Vector2u Vertex::getloc()const {
+	return m_pipe->getLoc();
+}
+std::unordered_set <Vertex*>::iterator Vertex::getBeginNeighbor(){
+	return m_neighbors.begin();
+}
+std::unordered_set <Vertex*>::iterator Vertex::getEndNeighbor() {
+	return m_neighbors.end();
+}
 void Vertex::changeColor(const sf::Color& color) {
 	m_pipe->changeColor(color);
 }
-void Vertex::addNeighbor(const std::shared_ptr<Vertex>& neighbor) {
+void Vertex::addNeighbor( Vertex * neighbor) {
 		m_neighbors.insert(neighbor);
 }
 
@@ -34,8 +41,9 @@ void Vertex::rotate(int direction) {
 }
 //resetting the 5 vertexes before updating them
 void Vertex:: removeNeighbors() {
+	
 	for (auto it = m_neighbors.begin(); it != m_neighbors.end(); it++) {
-		it->get()->m_neighbors.clear();
+		(*it)->m_neighbors.clear();
 	}
 	m_neighbors.clear();
 

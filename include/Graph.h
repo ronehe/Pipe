@@ -14,9 +14,9 @@ public:
 
 
 
-	//void BFS() const;
+	void BFS() const;
 private:
 	std::vector<std::vector<std::shared_ptr<Vertex>>> m_vertices;
-	std::vector<std::shared_ptr<Vertex>> m_sourceVertices; //starting points for DFS/BFS
+	std::vector<Vertex*> m_sourceVertices; //starting points for DFS/BFS
 	const sf::Vector2u m_graphSize;
 };
