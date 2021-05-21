@@ -87,8 +87,7 @@ void Graph::BFS() {
 	std::list<Vertex*> queue;
 
 	// Mark the current node as visited and enqueue it
-	for (auto src : m_sourceVertices) {
-		auto s = m_sourceVertices[0];
+	for (auto s : m_sourceVertices) {
 		auto curLoc = s->getloc();
 		visited[curLoc.x][curLoc.y] = true;
 		queue.push_back(s);
