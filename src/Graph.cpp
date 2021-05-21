@@ -32,12 +32,9 @@ void Graph::rotate(const sf::Vector2u& posPipe, int direction) {
 	uptadeAfterRotate(posPipe);
 }
 void Graph::uptadeAfterRotate(const sf::Vector2u& posPipe) {
-
+	
 	m_vertices[posPipe.x][posPipe.y].get()->removeNeighbors();
-	m_vertices[posPipe.x-1][posPipe.y].get()->removeNeighbors();
-	m_vertices[posPipe.x+1][posPipe.y].get()->removeNeighbors();
-	m_vertices[posPipe.x][posPipe.y-1].get()->removeNeighbors();
-	m_vertices[posPipe.x][posPipe.y+1].get()->removeNeighbors();
+
 
 	updateVertexNeighboors(posPipe.x, posPipe.y);
 	updateVertexNeighboors(posPipe.x-1, posPipe.y);

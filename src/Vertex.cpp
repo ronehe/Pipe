@@ -18,7 +18,9 @@ void Vertex::changeColor(const sf::Color& color) {
 	m_pipe->changeColor(color);
 }
 void Vertex::addNeighbor(const std::shared_ptr<Vertex>& neighbor) {
-	m_neighbors.push_back(neighbor);
+	auto it =std::find(m_neighbors.begin(), m_neighbors.end(), neighbor);
+	if(it==m_neighbors.end())//if didnt find
+		m_neighbors.push_back(neighbor);
 }
 
 
@@ -34,7 +36,9 @@ void Vertex::rotate(int direction) {
 }
 //resetting the 5 vertexes before updating them
 void Vertex:: removeNeighbors() {
-
+	for (auto it = m_neighbors.begin(); it != m_neighbors.end(); it++) {
+		it->get()->m_neighbors.clear();
+	}
 	m_neighbors.clear();
 
 }
