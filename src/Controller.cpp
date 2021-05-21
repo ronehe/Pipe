@@ -1,5 +1,6 @@
 #include "Controller.h"
 #include "Textures.h"
+#include "Sounds.h"
 #include "CurvedPipe.h"
 #pragma once
 

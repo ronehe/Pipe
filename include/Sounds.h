@@ -1,21 +1,20 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Macros.h"
 
-class Textures {
+class Sounds{
 
 	//--------------public--------functions-----------------------//
 public:
-	static Textures& instance();
+	static Sounds& instance();
 	//gets requested sound from sound member
-	const sf::Texture& get_Textures(pipeTextures key) { return (m_pipeTex[key]); }
+	const sf::SoundBuffer& get_Sounds(GameSounds key) { return (m_gameSounds[key]); }
 	//--------------private--------functions-----------------------//		
 private:
 
 	//------------------members-----------------------------------//		
 private:
-	Textures();//constractor for static member
+	Sounds();//constractor for static member
 	//~Textures();
-	std::map<enum pipeTextures, sf::Texture> m_pipeTex;
-
+	std::map<enum GameSounds, sf::SoundBuffer> m_gameSounds;
 };

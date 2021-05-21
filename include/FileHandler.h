@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include <string>
 #include <fstream>
@@ -5,7 +6,6 @@
 #include <SFML/Graphics.hpp>
 #include "Macros.h"
 
-#pragma once
 class FileHandler{
 	//--------------public--------functions-----------------------//
 public:

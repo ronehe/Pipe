@@ -1,7 +1,7 @@
+#pragma once
 #include "BasePipe.h"
 #include "Graph.h"
 #include"FileHandler.h"
-#pragma once
 class RepTex{
 public:
 	void addPipe(char p, sf::Vector2u loc);

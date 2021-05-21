@@ -1,6 +1,7 @@
-#include <SFML/Graphics.hpp>
-#include <array>
 #pragma once
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <array>
 
 //~~~~~~~~~Textures~~~~~~~~~~~~~
 enum pipeTextures {
@@ -11,6 +12,11 @@ enum pipeTextures {
 	threeWayPipe_t=4,
 	sink_t =5,
 	tap_t=6,
+};
+
+//~~~~~~~~~Sounds~~~~~~~~~~~~~
+enum GameSounds{
+	rotation_t = 0,
 };
 //~~~~~~~~~~~~~~~~~~~~~~
 

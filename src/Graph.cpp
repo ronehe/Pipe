@@ -10,6 +10,7 @@ Graph::Graph(const sf::Vector2u& mapSize)
 	}
 }
 
+//function for mainly initializing vertex at the construction of pipes
 std::unique_ptr<Vertex>& Graph::getVertexAt(const sf::Vector2u& loc) {
 	return m_vertices[loc.x][loc.y];
 } 
@@ -87,6 +88,7 @@ void Graph::BFS() {
 	std::list<Vertex*> queue;
 
 	// Mark the current node as visited and enqueue it
+	//in case of more than one source vertex - tun through all of them
 	for (auto s : m_sourceVertices) {
 		auto curLoc = s->getloc();
 		visited[curLoc.x][curLoc.y] = true;

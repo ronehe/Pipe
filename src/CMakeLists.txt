@@ -6,6 +6,7 @@
 								  "StraightPipe.cpp"
 								  "ThreeWayPipe.cpp"
 								  "Controller.cpp"
+								  "Sounds.cpp"
 								  "Textures.cpp"
 								  "FileHandler.cpp"
 								  "Vertex.cpp"

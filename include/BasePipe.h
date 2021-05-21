@@ -1,10 +1,11 @@
+#pragma once
 #include <vector>
 #include <string> 
 #include<iostream>
 #include <stdlib.h>
 #include "Macros.h"
 #include <Vertex.h>
-#pragma once
+#include "Sounds.h"
 
 class BasePipe{
 public:
@@ -15,12 +16,14 @@ public:
 	virtual void rotate(float); //all do the same except sink
 	 sf::Vector2u getLoc() const ;
 	 void changeColor(const sf::Color&);
+	 void playSound();
 	//~~~~~~~~~~~~~~~~~~~private functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 private:
 	//~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 private:
 	sf::Sprite m_pipe;
 	const sf::Vector2u m_loc;
+	sf::Sound m_rotationSound;
 protected:
 	Vertex* m_vertex;
 };

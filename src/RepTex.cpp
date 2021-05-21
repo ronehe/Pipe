@@ -75,6 +75,8 @@ void RepTex::rotatePipe(const sf::Vector2u &posPipe, float degrees) {
 	
 	resetColors(); //for resetting colors in case of disconnection of pipes from tap
 	m_pipes[posPipe.x][posPipe.y]->rotate(degrees);
+	m_pipes[posPipe.x][posPipe.y]->playSound();
+	
 	m_pipes[posPipe.x][posPipe.y]->changeColor(UnonnectedPipeColor);
 	m_graph.rotate(posPipe,int(degrees/std::abs(degrees)));
 }
