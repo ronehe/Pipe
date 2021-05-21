@@ -50,22 +50,6 @@ void Vertex:: removeNeighbors() {
 
 }
 
-bool Vertex::pipeIsSink()const{
+bool Vertex::vertexIsSrc()const{
 	return dynamic_cast<Sink*>(m_pipe);
 }
-/*
-* smart removing function maybe used later on 
-void Vertex ::removeNeighbor(Vertex*cur) {
-	auto it = std::find(m_neighbors.begin(), m_neighbors.end(), cur);
-	if (it!= m_neighbors.end()) {
-		m_neighbors.erase(it);
-	}
-
-}
-*/
-/*returns if both of the pointer are connected
-bool Vertex::isThereEdge(const unsigned int dir, Vertex* pToPipe) const {
-
-	return m_dir[dir] == pToPipe;
-}
-*/

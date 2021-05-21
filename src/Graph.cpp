@@ -10,7 +10,7 @@ Graph::Graph(const sf::Vector2u& mapSize)
 	}
 }
 
-std::shared_ptr<Vertex>& Graph::getVertexAt(const sf::Vector2u& loc) {
+std::unique_ptr<Vertex>& Graph::getVertexAt(const sf::Vector2u& loc) {
 	return m_vertices[loc.x][loc.y];
 } 
 
@@ -23,32 +23,28 @@ void Graph::setSourceVertex(const sf::Vector2u& loc) {
 void Graph::initializeEdges() {
 	for (auto row = 0; row < m_vertices.size(); row++) {
 		for (auto col = 0; col < m_vertices[row].size(); col++) {
-			updateVertexNeighboors( row,  col);
+			updateVertexNeighbors( row,  col);
 		}
 	}
 }
 
 void Graph::rotate(const sf::Vector2u& posPipe, int direction) {
 	m_vertices[posPipe.x][posPipe.y].get()->rotate(direction);
-	uptadeAfterRotate(posPipe);
+	updateAfterRotate(posPipe);
 	BFS();
 }
-void Graph::uptadeAfterRotate(const sf::Vector2u& posPipe) {
+void Graph::updateAfterRotate(const sf::Vector2u& posPipe) {
 	
 	m_vertices[posPipe.x][posPipe.y].get()->removeNeighbors();
-
-
-	updateVertexNeighboors(posPipe.x, posPipe.y);
-	updateVertexNeighboors(posPipe.x-1, posPipe.y);
-	updateVertexNeighboors(posPipe.x+1, posPipe.y);
-	updateVertexNeighboors(posPipe.x, posPipe.y-1);
-	updateVertexNeighboors(posPipe.x, posPipe.y+1);
-
-
+	updateVertexNeighbors(posPipe.x, posPipe.y);
+	updateVertexNeighbors(posPipe.x-1, posPipe.y);
+	updateVertexNeighbors(posPipe.x+1, posPipe.y);
+	updateVertexNeighbors(posPipe.x, posPipe.y-1);
+	updateVertexNeighbors(posPipe.x, posPipe.y+1);
 }
 
 
-void Graph::updateVertexNeighboors(int row, int col) {
+void Graph::updateVertexNeighbors(int row, int col) {
 	if (row<0 || row>m_graphSize.y-1 || col<0 || col>m_graphSize.x-1)
 		return;
 
@@ -118,7 +114,7 @@ void Graph::BFS() {
 			{
 				visited[curLoc.x][curLoc.y] = true;
 				m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::White);
-				if (m_vertices[curLoc.x][curLoc.y].get()->pipeIsSink()) {
+				if (m_vertices[curLoc.x][curLoc.y].get()->vertexIsSrc()) {
 					m_DestConnected = true;
 					break;
 				}

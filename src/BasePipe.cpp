@@ -1,6 +1,6 @@
 #include "BasePipe.h"
 
-BasePipe::BasePipe(sf::Vector2u loc, std::shared_ptr<Vertex>& vertex)
+BasePipe::BasePipe(sf::Vector2u loc, std::unique_ptr<Vertex>& vertex)
 	:m_loc(loc)
 {
 	auto size = PIPE_SIZE;
@@ -11,8 +11,8 @@ BasePipe::BasePipe(sf::Vector2u loc, std::shared_ptr<Vertex>& vertex)
 	m_pipe.setColor(sf::Color(0xAD, 0xFF, 0x2F));//green
 
 	m_pipe.setTextureRect(sf::IntRect(0, 0, 100, 100));
-	vertex = std::make_shared<Vertex>(this);
-	m_vertex = vertex;
+	vertex = std::make_unique<Vertex>(this);
+	m_vertex = vertex.get();
 }
 
 void BasePipe::drawPipe(sf::RenderWindow& game_Window)const {

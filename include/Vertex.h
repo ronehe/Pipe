@@ -7,8 +7,6 @@ class BasePipe;
 class Vertex {
 public:
 	Vertex(BasePipe*);
-	//bool Vertex::isThereEdge(const unsigned int dir, Vertex* pToPipe) const;
-	//void addNeighboors(Vertex* up, Vertex* right, Vertex* left, Vertex* down);
 	void addNeighbor(Vertex * neighbor);
 	void setDir(const Dir& dir);
 	void changeColor(const sf::Color& color);
@@ -16,13 +14,11 @@ public:
 	bool isPointingToDir(Directions);
 	void removeNeighbors();
 	sf::Vector2u getloc()const;
-	bool pipeIsSink() const;
-	//void removeNeighbor(Vertex* cur);
+	bool vertexIsSrc() const;
 	std::unordered_set <Vertex*>::iterator getBeginNeighbor();
 	std::unordered_set <Vertex*>::iterator getEndNeighbor();
 private:
 	BasePipe* m_pipe;
 	std::unordered_set<Vertex*> m_neighbors;
-	Dir m_dir;
-
+	Dir m_dir; //boolean array if size 4 to indicate directions
 };
