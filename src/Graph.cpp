@@ -45,7 +45,7 @@ void Graph::updateAfterRotate(const sf::Vector2u& posPipe) {
 
 
 void Graph::updateVertexNeighbors(int row, int col) {
-	if (row<0 || row>m_graphSize.y-1 || col<0 || col>m_graphSize.x-1)
+	if (row<0 || row>m_graphSize.x-1 || col<0 || col>m_graphSize.y-1)
 		return;
 
 	if (row != 0) {
@@ -59,12 +59,12 @@ void Graph::updateVertexNeighbors(int row, int col) {
 			m_vertices[row][col].get()->addNeighbor(m_vertices[row][col - 1].get());
 		}
 	}
-	if (col != m_graphSize.x - 1) {
+	if (col != m_graphSize.y - 1) {
 		if (m_vertices[row][col].get()->isPointingToDir(right_t) && m_vertices[row][col + 1].get()->isPointingToDir(left_t)) {
 			m_vertices[row][col].get()->addNeighbor(m_vertices[row][col + 1].get());
 		}
 	}
-	if (row != m_graphSize.y - 1) {
+	if (row != m_graphSize.x - 1) {
 		if (m_vertices[row][col].get()->isPointingToDir(down_t) && m_vertices[row + 1][col].get()->isPointingToDir(up_t)) {
 			m_vertices[row][col].get()->addNeighbor(m_vertices[row + 1][col].get());
 		}
@@ -87,38 +87,40 @@ void Graph::BFS() {
 	std::list<Vertex*> queue;
 
 	// Mark the current node as visited and enqueue it
-	auto s = m_sourceVertices[0];
-	auto curLoc = s->getloc();
-	visited[curLoc.x][curLoc.y] = true;
-	queue.push_back(s);
+	for (auto src : m_sourceVertices) {
+		auto s = m_sourceVertices[0];
+		auto curLoc = s->getloc();
+		visited[curLoc.x][curLoc.y] = true;
+		queue.push_back(s);
 
-	// 'i' will be used to get all adjacent
-	// vertices of a vertex
-	std::list<Vertex *>::iterator i;
+		// 'i' will be used to get all adjacent
+		// vertices of a vertex
+		std::list<Vertex*>::iterator i;
 
-	while (!queue.empty())
-	{
-		// Dequeue a vertex from queue and print it
-		s = queue.front();
-		m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::White);
-
-		queue.pop_front();
-
-		// Get all adjacent vertices of the dequeued
-		// vertex s. If a adjacent has not been visited,
-		// then mark it visited and enqueue it
-		for (auto i =s->getBeginNeighbor();  i != s->getEndNeighbor(); ++i)
+		while (!queue.empty())
 		{
-			 curLoc = (*i)->getloc();
-			if (!visited[curLoc.x][curLoc.y])
+			// Dequeue a vertex from queue and print it
+			s = queue.front();
+			m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::White);
+
+			queue.pop_front();
+
+			// Get all adjacent vertices of the dequeued
+			// vertex s. If a adjacent has not been visited,
+			// then mark it visited and enqueue it
+			for (auto i = s->getBeginNeighbor(); i != s->getEndNeighbor(); ++i)
 			{
-				visited[curLoc.x][curLoc.y] = true;
-				m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::White);
-				if (m_vertices[curLoc.x][curLoc.y].get()->vertexIsSrc()) {
-					m_DestConnected = true;
-					break;
+				curLoc = (*i)->getloc();
+				if (!visited[curLoc.x][curLoc.y])
+				{
+					visited[curLoc.x][curLoc.y] = true;
+					m_vertices[curLoc.x][curLoc.y]->changeColor(sf::Color::White);
+					if (m_vertices[curLoc.x][curLoc.y].get()->vertexIsSrc()) {
+						m_DestConnected = true;
+						break;
+					}
+					queue.push_back(*i);
 				}
-				queue.push_back(*i);
 			}
 		}
 	}

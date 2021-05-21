@@ -7,8 +7,6 @@
 #include "Sink.h"
 #include "Tap.h"
 
-
-
 RepTex::RepTex(sf::Vector2u mapSize)
 	: m_graph(mapSize)
 {
@@ -79,8 +77,6 @@ void RepTex::rotatePipe(const sf::Vector2u &posPipe, float degrees) {
 	m_pipes[posPipe.x][posPipe.y]->rotate(degrees);
 	m_pipes[posPipe.x][posPipe.y]->changeColor(UnonnectedPipeColor);
 	m_graph.rotate(posPipe,int(degrees/std::abs(degrees)));
-	//m_graph.updateEdges();
-	
 }
 
 void RepTex::resetColors() {
@@ -94,7 +90,4 @@ void RepTex::resetColors() {
 bool RepTex::isLvlFinished() {
 	return m_graph.isDestConnected();
 }
-
-
-
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
