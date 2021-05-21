@@ -23,19 +23,10 @@ void Controller::generateBackgrounds() {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::updateDataStructures() {
-	sf::Vector2u loc;
-	sf::Vector2f locOnWindow;
-	sf::Texture curTex;
-	char currentChar;
-	auto size=m_map.get_Size();
-	for (loc.x = 0; loc.x <size.x ; loc.x++) {
-		for (loc.y = 0; loc.y < size.y; loc.y++) {
-			currentChar = m_map.what_In_Location(loc);
-			//auto curved = new CurvedPipe(PIPE_SIZE, loc);
-			m_mapOnScreen.addPipe(currentChar,loc);
-		}
-	}
-	m_mapOnScreen.initialize();
+	
+	m_mapOnScreen.initialize(m_map);
+
+	
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -69,6 +60,6 @@ void Controller::rotate(sf::Event event) {
 	if (!(int(event.mouseButton.x / PIPE_TEXTURE_SIZE) > (size.y - 1)) && !(int(event.mouseButton.y / PIPE_TEXTURE_SIZE) > (size.x - 1))) {
 		if (event.mouseButton.button != sf::Mouse::Left)
 			dir *= -1.f;
-		m_mapOnScreen.rotatePipe(sf::Vector2i(int(event.mouseButton.y / PIPE_TEXTURE_SIZE), int(event.mouseButton.x / PIPE_TEXTURE_SIZE)), dir);
+		m_mapOnScreen.rotatePipe(sf::Vector2u(int(event.mouseButton.y / PIPE_TEXTURE_SIZE), int(event.mouseButton.x / PIPE_TEXTURE_SIZE)), dir);
 	}
 }

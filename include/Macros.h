@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <array>
 #pragma once
 
 //~~~~~~~~~Textures~~~~~~~~~~~~~
@@ -14,26 +15,22 @@ enum pipeTextures {
 //~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~~graph~~~~~~~~~~~~~
-struct dir {
-	dir(bool up, bool right, bool down, bool left) {
-		
-		m_dir[0] = up;
-		m_dir[1] = right;
-		m_dir[2] = down;
-		m_dir[3] = left;
-
-	}
-	dir()
-	{
-		m_dir[0] = false;
-		m_dir[1] = false;
-		m_dir[2] = false;
-		m_dir[3] = false;
-		
-	}
-	bool m_dir[4];
+enum Directions {
+	up_t = 0,
+	right_t,
+	down_t,
+	left_t
 
 };
+typedef std::array<bool, 4>Dir;
+
+const Dir CURVED_DIR = { 0, 0, 1, 1 };
+const Dir STRAIGHT_DIR = { 0, 1, 0, 1 };
+const Dir THREE_DIR = { 0, 1, 1, 1 };
+const Dir SINK_DIR = { 1, 1, 1, 1 };
+const Dir TAP_DIR = { 0, 1, 0, 0 };
+const Dir UNDEFINED_DIR = { 0, 0, 0, 0 };
+
 
 
 //~~~~~~~~~~~~~~~~~~~~~~

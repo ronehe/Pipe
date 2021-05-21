@@ -8,6 +8,12 @@ public:
 	std::shared_ptr<Vertex>& getVertexAt(const sf::Vector2u& loc);
 	void setSourceVertex(const sf::Vector2u& loc);
 	void initializeEdges();
+	void updateVertexNeighboors(int row, int col);
+	void rotate(const sf::Vector2u& posPipe, int direction);
+	void uptadeAfterRotate(const sf::Vector2u& posPipe);//after rotation we need to set the neightbors of the current vetrex and the neighbors's neighbors  
+
+
+
 	//void BFS() const;
 private:
 	std::vector<std::vector<std::shared_ptr<Vertex>>> m_vertices;

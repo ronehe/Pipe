@@ -24,18 +24,8 @@ void BasePipe::setTexture(const sf::Texture& pic) {
 }
 
 void BasePipe::rotate(float degrees) {
-	dir cur(0,0,0,0);
-	dir lastDir = m_vertex.get()->getDir();
-	int direction = 1;
-	if (degrees < 0.f)
-		direction *= -1;
-	for (int i = 0; i < 4; i++) {
-		if (lastDir.m_dir[i] == true) {
-		//sets the correct rotation using mudolo logic
-			cur.m_dir[(4+((i + direction) % 4))%4] = true;
-		}
-	}
-	m_vertex.get()->setDir(cur);
+
+	
 	m_pipe.rotate(degrees);
 }
 

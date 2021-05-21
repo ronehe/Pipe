@@ -8,9 +8,13 @@ public:
 	//bool Vertex::isThereEdge(const unsigned int dir, Vertex* pToPipe) const;
 	//void addNeighboors(Vertex* up, Vertex* right, Vertex* left, Vertex* down);
 	void addNeighbor(const std::shared_ptr<Vertex>& neighbor);
-	void setDir(dir inpDir);
-	dir getDir()const;
+	void setDir(const Dir& dir);
 	void changeColor(const sf::Color& color);
+	void rotate(int direction);
+	bool isPointingToDir( Directions);
+	void removeNeighbors();
+	//void removeNeighbor(Vertex* cur);
+
 private:
 	BasePipe* m_pipe;
 
@@ -20,7 +24,7 @@ private:
 	Vertex* m_left;
 	Vertex* m_down;
 	
-	dir m_dir;
+	 Dir m_dir;
 
 
 };

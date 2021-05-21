@@ -45,7 +45,19 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 	}
 }
 
-void RepTex::initialize() {
+void RepTex::initialize(FileHandler &map) {
+	sf::Vector2u loc;
+	auto size = map.get_Size();
+	char currentChar;
+
+	for (loc.x = 0; loc.x < size.x; loc.x++) {
+		for (loc.y = 0; loc.y < size.y; loc.y++) {
+			currentChar = map.what_In_Location(loc);
+			//auto curved = new CurvedPipe(PIPE_SIZE, loc);
+			addPipe(currentChar, loc);
+		}
+	}
+
 	m_graph.initializeEdges();
 }
 
@@ -59,9 +71,10 @@ void RepTex::drawBoard(sf::RenderWindow& game_Window) {
 }
 
 //rotation function
-void RepTex::rotatePipe(const sf::Vector2i &posPipe, float degrees) {
+void RepTex::rotatePipe(const sf::Vector2u &posPipe, float degrees) {
 	
 	m_pipes[posPipe.x][posPipe.y]->rotate(degrees);
+	m_graph.rotate(posPipe,int(degrees/std::abs(degrees)));
 	//m_graph.updateEdges();
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

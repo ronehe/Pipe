@@ -22,34 +22,59 @@ void Graph::setSourceVertex(const sf::Vector2u& loc) {
 void Graph::initializeEdges() {
 	for (auto row = 0; row < m_vertices.size(); row++) {
 		for (auto col = 0; col < m_vertices[row].size(); col++) {
-			if (row != 0) {
-				if (m_vertices[row][col].get()->getDir().m_dir[0] && m_vertices[row - 1][col].get()->getDir().m_dir[2]) {
-					m_vertices[row][col].get()->addNeighbor(m_vertices[row - 1][col]);
-					m_vertices[row - 1][col].get()->addNeighbor(m_vertices[row][col]);
-				}
-			}
-			if (col != 0) {
-				if (m_vertices[row][col].get()->getDir().m_dir[1] && m_vertices[row][col - 1].get()->getDir().m_dir[3]) {
-					m_vertices[row][col].get()->addNeighbor(m_vertices[row][col - 1]);
-					m_vertices[row][col - 1].get()->addNeighbor(m_vertices[row][col]);
-				}
-			}
-			if (col != m_graphSize.x - 1) {
-				if (m_vertices[row][col].get()->getDir().m_dir[1] && m_vertices[row][col + 1].get()->getDir().m_dir[3]) {
-					m_vertices[row][col].get()->addNeighbor(m_vertices[row][col + 1]);
-					m_vertices[row][col + 1].get()->addNeighbor(m_vertices[row][col]);
-				}
-			}
-			if (row != m_graphSize.y - 1) {
-				if (m_vertices[row][col].get()->getDir().m_dir[3] && m_vertices[row + 1][col].get()->getDir().m_dir[1]) {
-					m_vertices[row][col].get()->addNeighbor(m_vertices[row + 1][col]);
-					m_vertices[row + 1][col].get()->addNeighbor(m_vertices[row + 1][col]);
-				}
-			}
+			updateVertexNeighboors( row,  col);
 		}
 	}
 }
 
+void Graph::rotate(const sf::Vector2u& posPipe, int direction) {
+	m_vertices[posPipe.x][posPipe.y].get()->rotate(direction);
+	uptadeAfterRotate(posPipe);
+}
+void Graph::uptadeAfterRotate(const sf::Vector2u& posPipe) {
+
+	m_vertices[posPipe.x][posPipe.y].get()->removeNeighbors();
+	m_vertices[posPipe.x-1][posPipe.y].get()->removeNeighbors();
+	m_vertices[posPipe.x+1][posPipe.y].get()->removeNeighbors();
+	m_vertices[posPipe.x][posPipe.y-1].get()->removeNeighbors();
+	m_vertices[posPipe.x][posPipe.y+1].get()->removeNeighbors();
+
+	updateVertexNeighboors(posPipe.x, posPipe.y);
+	updateVertexNeighboors(posPipe.x-1, posPipe.y);
+	updateVertexNeighboors(posPipe.x+1, posPipe.y);
+	updateVertexNeighboors(posPipe.x, posPipe.y-1);
+	updateVertexNeighboors(posPipe.x, posPipe.y+1);
+
+
+}
+
+
+void Graph::updateVertexNeighboors(int row, int col) {
+	if (row<0 || row>m_graphSize.y-1 || col<0 || col>m_graphSize.x-1)
+		return;
+
+	if (row != 0) {
+
+		if (m_vertices[row][col].get()->isPointingToDir(up_t) && m_vertices[row - 1][col].get()->isPointingToDir(down_t)) {
+			m_vertices[row][col].get()->addNeighbor(m_vertices[row - 1][col]);
+		}
+	}
+	if (col != 0) {
+		if (m_vertices[row][col].get()->isPointingToDir(left_t) && m_vertices[row][col - 1].get()->isPointingToDir(right_t)) {
+			m_vertices[row][col].get()->addNeighbor(m_vertices[row][col - 1]);
+		}
+	}
+	if (col != m_graphSize.x - 1) {
+		if (m_vertices[row][col].get()->isPointingToDir(right_t) && m_vertices[row][col + 1].get()->isPointingToDir(left_t)) {
+			m_vertices[row][col].get()->addNeighbor(m_vertices[row][col + 1]);
+		}
+	}
+	if (row != m_graphSize.y - 1) {
+		if (m_vertices[row][col].get()->isPointingToDir(down_t) && m_vertices[row + 1][col].get()->isPointingToDir(up_t)) {
+			m_vertices[row][col].get()->addNeighbor(m_vertices[row + 1][col]);
+		}
+	}
+}
 	/*
 void Graph::BFS() const{
 	// Mark all the vertices as not visited
