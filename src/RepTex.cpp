@@ -45,6 +45,10 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 	}
 }
 
+void RepTex::initialize() {
+	m_graph.initializeEdges();
+}
+
 //drawing the board on requested screen..
 void RepTex::drawBoard(sf::RenderWindow& game_Window) {
 	for (unsigned int i = 0; i < m_pipes.size(); i++) {
@@ -58,6 +62,6 @@ void RepTex::drawBoard(sf::RenderWindow& game_Window) {
 void RepTex::rotatePipe(const sf::Vector2i &posPipe, float degrees) {
 	
 	m_pipes[posPipe.x][posPipe.y]->rotate(degrees);
-	m_graph.updateEdges();
+	//m_graph.updateEdges();
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

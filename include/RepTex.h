@@ -7,6 +7,7 @@ public:
 	void drawBoard(sf::RenderWindow& game_Window);
 	void rotatePipe(const sf::Vector2i& posTile, float);
 	RepTex(sf::Vector2u mapSize);
+	void initialize();
 private:
 	std::vector<std::vector<std::shared_ptr<BasePipe>>> m_pipes;
 	Graph m_graph;

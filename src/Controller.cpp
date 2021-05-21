@@ -35,6 +35,7 @@ void Controller::updateDataStructures() {
 			m_mapOnScreen.addPipe(currentChar,loc);
 		}
 	}
+	m_mapOnScreen.initialize();
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 

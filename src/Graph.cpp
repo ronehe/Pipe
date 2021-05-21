@@ -1,8 +1,8 @@
 #include "Graph.h"
 #include <memory>
 
-Graph::Graph(const sf::Vector2u &mapSize) 
-	: m_graphSize(mapSize) {
+Graph::Graph(const sf::Vector2u& mapSize)
+	:m_graphSize(mapSize) {
 	m_vertices.resize(mapSize.x);
 	for (unsigned int i = 0; i < mapSize.x;i++) {
 		m_vertices[i].resize(mapSize.y);
@@ -18,31 +18,53 @@ void Graph::setSourceVertex(const sf::Vector2u& loc) {
 	m_sourceVertices.push_back(m_vertices[loc.x][loc.y]);
 }
 
-void Graph::updateEdges() {
+//for initializing for the first time edges
+void Graph::initializeEdges() {
 	for (auto row = 0; row < m_vertices.size(); row++) {
 		for (auto col = 0; col < m_vertices[row].size(); col++) {
-			if(row != 0)
+			if (row != 0) {
 				if (m_vertices[row][col].get()->getDir().m_dir[0] && m_vertices[row - 1][col].get()->getDir().m_dir[2]) {
-					m_vertices[row][col].get()->changeColor(sf::Color::Blue);
+					m_vertices[row][col].get()->addNeighbor(m_vertices[row - 1][col]);
+					m_vertices[row - 1][col].get()->addNeighbor(m_vertices[row][col]);
 				}
-				else 
-					m_vertices[row][col].get()->changeColor(sf::Color::Green);
+			}
+			if (col != 0) {
+				if (m_vertices[row][col].get()->getDir().m_dir[1] && m_vertices[row][col - 1].get()->getDir().m_dir[3]) {
+					m_vertices[row][col].get()->addNeighbor(m_vertices[row][col - 1]);
+					m_vertices[row][col - 1].get()->addNeighbor(m_vertices[row][col]);
+				}
+			}
+			if (col != m_graphSize.x - 1) {
+				if (m_vertices[row][col].get()->getDir().m_dir[1] && m_vertices[row][col + 1].get()->getDir().m_dir[3]) {
+					m_vertices[row][col].get()->addNeighbor(m_vertices[row][col + 1]);
+					m_vertices[row][col + 1].get()->addNeighbor(m_vertices[row][col]);
+				}
+			}
+			if (row != m_graphSize.y - 1) {
+				if (m_vertices[row][col].get()->getDir().m_dir[3] && m_vertices[row + 1][col].get()->getDir().m_dir[1]) {
+					m_vertices[row][col].get()->addNeighbor(m_vertices[row + 1][col]);
+					m_vertices[row + 1][col].get()->addNeighbor(m_vertices[row + 1][col]);
+				}
+			}
 		}
 	}
 }
 
+	/*
 void Graph::BFS() const{
 	// Mark all the vertices as not visited
-	std::vector<std::vector<bool>>  ;
-	for (int i = 0; i < V; i++)
-		visited[i] = false;
+	std::vector<std::vector<bool>> visited;
+	for (int i = 0; i < m_graphSize.x; i++)
+		for(int j = 0; j < m_graphSize.y; j++)
+			visited[i][j] = false;
 
 	// Create a queue for BFS
 	std::list<int> queue;
 
 	// Mark the current node as visited and enqueue it
-	visited[s] = true;
-	queue.push_back(s);
+	auto s = m_sourceVertices[0];
+	visited[s.get()] = true;
+	queue.push_back(s.get());
 
 	// 'i' will be used to get all adjacent
 	// vertices of a vertex
@@ -68,3 +90,4 @@ void Graph::BFS() const{
 		}
 	}
 }
+*/
