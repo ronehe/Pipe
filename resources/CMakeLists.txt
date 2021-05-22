@@ -18,3 +18,5 @@ configure_file ("cheers.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("CantMove.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("connection.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("FontOfTime.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("gameFinished.png" ${CMAKE_BINARY_DIR} COPYONLY)
+

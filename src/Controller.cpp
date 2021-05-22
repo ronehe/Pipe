@@ -35,18 +35,18 @@ Controller::Controller()
 	m_lvlText.setFillColor(sf::Color::Black);
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-void Controller::newLvl() {
+bool Controller::newLvl() {
 	//checking if there is a new lvl
 	if (m_map.rebuild_Map()) {
 		m_mapOnScreen.release();
 		m_mapOnScreen = std::make_unique<RepTex>(m_map.get_Size());
-
 		updateDataStructures();
 		m_level++;
 		m_clock.restart();
 		m_numOfRotations = 0;
+		return true;
 	}
-	
+	return false;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -78,10 +78,13 @@ void Controller::startGame() {
 		m_mapOnScreen->drawBoard(m_gameWindow);
 		m_gameWindow.display();
 		if (m_mapOnScreen->isLvlFinished()) {
+			m_gameWindow.display();
 			m_finishedLvlSound.play();
-			newLvl();
-
-		
+			if (!newLvl()) { //if there isnt a new lvl
+				printEndGameTex();
+				m_gameWindow.close();
+			}
+			printNextLvlTex();
 		}
 		while (m_gameWindow.pollEvent(event))
 		{
@@ -105,6 +108,29 @@ void Controller::rotate(sf::Event event) {
 		if (event.mouseButton.button != sf::Mouse::Left)
 			dir *= -1.f;
 		m_mapOnScreen->rotatePipe(sf::Vector2u(int(event.mouseButton.y / PIPE_TEXTURE_SIZE), int(event.mouseButton.x / PIPE_TEXTURE_SIZE)), dir);
-
 	}
+}
+void Controller::printEndGameTex() {
+	m_clock.restart();
+	while (m_clock.getElapsedTime().asSeconds() < 2);
+	sf::Sprite game_over;
+	game_over.setTexture(Textures::instance().get_Textures(gameFinished));
+	m_gameWindow.draw(game_over);
+	m_gameWindow.display();
+	m_clock.restart();
+	while (m_clock.getElapsedTime().asSeconds() < 5);
+}
+void Controller::printNextLvlTex()
+{
+	sf::Text solved;
+	solved.setFont(Fonts::instance().get_Fonts(PipedFont_t));
+	solved.setString("Well Done level solved");
+	solved.setPosition(sf::Vector2f(100, 400));
+	solved.setCharacterSize(100);
+	solved.setFillColor(sf::Color::Red);
+	solved.setOutlineThickness(1);
+	m_gameWindow.draw(solved);
+	m_gameWindow.display();
+	m_clock.restart();
+	while (m_clock.getElapsedTime().asSeconds() < 3);
 }

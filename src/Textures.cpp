@@ -45,4 +45,6 @@ Textures::Textures() {
 	texName = "b.png";
 	loadPic(pic, texName, tap_t);
 
+	texName = "gameFinished.png";
+	loadPic(pic, texName, gameFinished);
 }

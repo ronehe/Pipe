@@ -58,7 +58,7 @@ void FileHandler::set_Map() {
 		if (cur.size() != m_Size.y)
 			throw std::invalid_argument(("Size of row is " +
 									std::to_string(m_Size.y) +
-									"but theres a line with size " +
+									" but theres a line with size " +
 									std::to_string(cur.size())).data());
 
 		m_fileHandler.push_back(cur);
