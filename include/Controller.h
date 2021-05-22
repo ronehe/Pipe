@@ -22,8 +22,9 @@ private:
 	void generateBackgrounds();
 	void updateDataStructures();
 	void rotate(sf::Event event);
-	void newLvl();
-
+	bool newLvl();
+	void printNextLvlTex();
+	void printEndGameTex();
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~//
 private:
 	sf::RenderWindow m_gameWindow;
