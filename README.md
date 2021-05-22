@@ -1,4 +1,4 @@
-![img]https://i.imgur.com/91AFoZg.png[/img]
+![img](https://i.imgur.com/91AFoZg.png)
 # Pipe: An academic exercise
 This is the fourh academic exercise of the course OOP2.
 * 
