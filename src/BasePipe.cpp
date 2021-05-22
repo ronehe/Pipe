@@ -13,21 +13,16 @@ BasePipe::BasePipe(sf::Vector2u loc, std::unique_ptr<Vertex>& vertex)
 	m_pipe.setTextureRect(sf::IntRect(0, 0, 100, 100));
 	vertex = std::make_unique<Vertex>(this);
 	m_vertex = vertex.get();
-
-	setRotationSound();
-	m_connectionSound.setVolume(2);
-	m_connectionSound.setBuffer(Sounds::instance().get_Sounds(ConnectionSound_t));
 }
 
 void BasePipe::setRotationSound() {
 	m_rotationSound.setVolume(3);
 	m_rotationSound.setBuffer(Sounds::instance().get_Sounds(rotation_t));
+	m_connectionSound.setBuffer(Sounds::instance().get_Sounds(ConnectionSound_t));
+	m_connectionSound.setVolume(3);
 }
 void BasePipe:: setVolume() {
-
 	m_rotationSound.stop();
-	
-
 }
 
 void BasePipe::drawPipe(sf::RenderWindow& game_Window)const {
