@@ -19,6 +19,7 @@ public:
 	 void playSound();
 	 void playConnectionSound();
 	 virtual void setRotationSound();
+	 virtual void setVolume();
 
 	 
 	 virtual ~BasePipe() {} 

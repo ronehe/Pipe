@@ -59,6 +59,7 @@ void RepTex::initialize(FileHandler &map) {
 	}
 
 	m_graph.initializeEdges();
+	
 	shuffle();
 	m_graph.BFS();
 }
@@ -89,9 +90,18 @@ void RepTex::shuffle() {
 	std::srand(std::time(nullptr));
 	for(loc.x = 0; loc.x < m_pipes.size(); loc.x++){
 		for(loc.y = 0; loc.y < m_pipes[loc.x].size(); loc.y++){
+
 			random = std::rand() % 4;
-			for (auto i = 0; i < random; i++)
+			for (auto i = 0; i < random; i++) {
+
 				rotatePipe(loc, DEG90);
+				m_pipes[loc.x][loc.y]->setVolume();
+
+			}
+
+
+			
+
 		}
 	}
 }
