@@ -17,6 +17,9 @@ public:
 	 sf::Vector2u getLoc() const ;
 	 void changeColor(const sf::Color&);
 	 void playSound();
+
+	 
+	 virtual ~BasePipe() {} 
 	//~~~~~~~~~~~~~~~~~~~private functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 private:
 	//~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

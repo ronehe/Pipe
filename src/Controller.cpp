@@ -9,7 +9,8 @@ Controller::Controller()
 	m_bgMenu(Textures::instance().get_Textures(background_t)),
 	m_mapOnScreen(m_map.get_Size())
 {
-	
+	m_finishedLvlSound.setBuffer(Sounds::instance().get_Sounds(cheers_t));
+	m_finishedLvlSound.setVolume(5);
 	generateBackgrounds();
 	
 	updateDataStructures();
@@ -41,6 +42,8 @@ void Controller::startGame() {
 		m_mapOnScreen.drawBoard(m_gameWindow);
 		m_gameWindow.display();
 		if (m_mapOnScreen.isLvlFinished()) {
+			m_finishedLvlSound.play();
+			while (1);
 			std::cout << "yeahhh";
 			//loadNewMap();
 

@@ -40,7 +40,8 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 		break;
 
 	default:
-		throw std::invalid_argument(((std::string(1, p) + " is not a supprorted command, to see supported commands please go to README")).data());
+		throw std::invalid_argument(((std::string(1, p)
+						+ " is not a supprorted command, to see supported commands please go to README\n")).data());
 		break;
 	}
 }

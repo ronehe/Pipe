@@ -28,6 +28,7 @@ private:
 	sf::RenderWindow m_gameWindow;
 	sf::Sprite m_background;
 	sf::Sprite m_bgMenu;
+	sf::Sound m_finishedLvlSound;
 	std::map<char, pipeTextures>m_charToTexConverter;
 	std::map<char, const unsigned int> m_charToDirectionConverter;
 	FileHandler m_map;

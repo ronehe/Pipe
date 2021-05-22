@@ -13,4 +13,7 @@ Sounds::Sounds() {
 	sf::SoundBuffer sound;
 	if (!sound.loadFromFile("rotationSound.wav")) throw std::exception();
 	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(rotation_t, sound));
+
+	if (!sound.loadFromFile("cheers.wav")) throw std::exception();
+	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(cheers_t, sound));
 }

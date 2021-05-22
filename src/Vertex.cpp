@@ -42,7 +42,6 @@ void Vertex::rotate(int direction) {
 }
 //resetting the 5 vertexes before updating them
 void Vertex:: removeNeighbors() {
-	
 	for (auto it = m_neighbors.begin(); it != m_neighbors.end(); it++) {
 		(*it)->m_neighbors.clear();
 	}

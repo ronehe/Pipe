@@ -17,6 +17,7 @@ enum pipeTextures {
 //~~~~~~~~~Sounds~~~~~~~~~~~~~
 enum GameSounds{
 	rotation_t = 0,
+	cheers_t = 1
 };
 //~~~~~~~~~~~~~~~~~~~~~~
 
