@@ -17,10 +17,16 @@ Controller::Controller()
 	updateDataStructures();
 
 	m_timeText.setFont(Fonts::instance().get_Fonts(PipedFont_t));
-	m_timeText.setString("Time: ");
+	m_timeText.setString("Time: " + std::to_string(int(m_clock.getElapsedTime().asSeconds())));
 	m_timeText.setPosition(MENU_POS);
 	m_timeText.setCharacterSize(50);
 	m_timeText.setFillColor(sf::Color::Black);
+
+	m_rotationText.setFont(Fonts::instance().get_Fonts(PipedFont_t));
+	m_rotationText.setString("Taps: " + std::to_string(m_numOfRotations));
+	m_rotationText.setPosition(MENU_POS + sf::Vector2f(0, 100));
+	m_rotationText.setCharacterSize(50);
+	m_rotationText.setFillColor(sf::Color::Black);
 	m_gameWindow.draw(m_timeText);
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -58,7 +64,9 @@ void Controller::startGame() {
 		m_gameWindow.draw(m_background);
 		m_gameWindow.draw(m_bgMenu);
 		m_timeText.setString("Time: " + std::to_string(int(m_clock.getElapsedTime().asSeconds())));
+		m_rotationText.setString("Rotations: " + std::to_string(m_numOfRotations));
 		m_gameWindow.draw(m_timeText);
+		m_gameWindow.draw(m_rotationText);
 		
 		m_mapOnScreen->drawBoard(m_gameWindow);
 		m_gameWindow.display();
@@ -86,6 +94,7 @@ void Controller::rotate(sf::Event event) {
 	auto size = m_map.get_Size();
 	auto dir = DEG90;
 	if (!(int(event.mouseButton.x / PIPE_TEXTURE_SIZE) > (size.y - 1)) && !(int(event.mouseButton.y / PIPE_TEXTURE_SIZE) > (size.x - 1))) {
+		m_numOfRotations++;
 		if (event.mouseButton.button != sf::Mouse::Left)
 			dir *= -1.f;
 		m_mapOnScreen->rotatePipe(sf::Vector2u(int(event.mouseButton.y / PIPE_TEXTURE_SIZE), int(event.mouseButton.x / PIPE_TEXTURE_SIZE)), dir);

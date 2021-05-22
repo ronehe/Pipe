@@ -29,13 +29,17 @@ private:
 	sf::RenderWindow m_gameWindow;
 	sf::Sprite m_background;
 	sf::Sprite m_bgMenu;
+
 	sf::Text m_timeText;
+	sf::Text m_rotationText;
 	sf::Sound m_finishedLvlSound;
 	sf::Clock m_clock;
 	std::map<char, pipeTextures>m_charToTexConverter;
 	std::map<char, const unsigned int> m_charToDirectionConverter;
 	FileHandler m_map;
 	std::unique_ptr<RepTex>m_mapOnScreen;
+
+	int m_numOfRotations = 0;
 
 	//Board m_board;
 };
