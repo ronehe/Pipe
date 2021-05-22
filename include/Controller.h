@@ -22,6 +22,7 @@ private:
 	void generateBackgrounds();
 	void updateDataStructures();
 	void rotate(sf::Event event);
+	void newLvl();
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~private members~~~~~~~~~~//
 private:
@@ -34,7 +35,7 @@ private:
 	std::map<char, pipeTextures>m_charToTexConverter;
 	std::map<char, const unsigned int> m_charToDirectionConverter;
 	FileHandler m_map;
-	RepTex m_mapOnScreen;
+	std::unique_ptr<RepTex>m_mapOnScreen;
 
 	//Board m_board;
 };
