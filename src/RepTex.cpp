@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include "RepTex.h"
 #include "Textures.h"
 #include "BasePipe.h"
@@ -58,6 +59,7 @@ void RepTex::initialize(FileHandler &map) {
 	}
 
 	m_graph.initializeEdges();
+	shuffle();
 	m_graph.BFS();
 }
 
@@ -79,6 +81,18 @@ void RepTex::rotatePipe(const sf::Vector2u &posPipe, float degrees) {
 	
 	m_pipes[posPipe.x][posPipe.y]->changeColor(UnonnectedPipeColor);
 	m_graph.rotate(posPipe,int(degrees/std::abs(degrees)));
+}
+
+void RepTex::shuffle() {
+	sf::Vector2u loc;
+	int random;
+	for(loc.x = 0; loc.x < m_pipes.size(); loc.x++){
+		for(loc.y = 0; loc.y < m_pipes[loc.x].size(); loc.y++){
+			random = rand() % 4;
+			for (auto i = 0; i < random; i++)
+				rotatePipe(loc, DEG90);
+		}
+	}
 }
 
 void RepTex::resetColors() {

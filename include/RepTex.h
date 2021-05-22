@@ -10,6 +10,7 @@ public:
 	RepTex(sf::Vector2u mapSize);
 	void initialize(FileHandler &map);
 	void resetColors();
+	void shuffle();
 	bool isLvlFinished();
 private:
 	std::vector<std::vector<std::unique_ptr<BasePipe>>> m_pipes;
