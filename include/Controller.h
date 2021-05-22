@@ -1,3 +1,4 @@
+#pragma once
 #include "Board.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -9,7 +10,6 @@
 
 //#include "iostream"
 
-#pragma once
 
 class Controller {
 
@@ -28,7 +28,9 @@ private:
 	sf::RenderWindow m_gameWindow;
 	sf::Sprite m_background;
 	sf::Sprite m_bgMenu;
+	sf::Text m_timeText;
 	sf::Sound m_finishedLvlSound;
+	sf::Clock m_clock;
 	std::map<char, pipeTextures>m_charToTexConverter;
 	std::map<char, const unsigned int> m_charToDirectionConverter;
 	FileHandler m_map;

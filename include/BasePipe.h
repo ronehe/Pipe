@@ -17,6 +17,7 @@ public:
 	 sf::Vector2u getLoc() const ;
 	 void changeColor(const sf::Color&);
 	 void playSound();
+	 virtual void setRotationSound();
 
 	 
 	 virtual ~BasePipe() {} 
@@ -26,8 +27,8 @@ private:
 private:
 	sf::Sprite m_pipe;
 	const sf::Vector2u m_loc;
-	sf::Sound m_rotationSound;
 	sf::Sound m_connectionSound;
 protected:
 	Vertex* m_vertex;
+	sf::Sound m_rotationSound;
 };

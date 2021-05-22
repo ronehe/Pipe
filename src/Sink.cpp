@@ -11,3 +11,7 @@ void Sink::rotate(float) {
 
 }
 
+void Sink::setRotationSound() {
+	m_rotationSound.setVolume(3);
+	m_rotationSound.setBuffer(Sounds::instance().get_Sounds(SinkSound_t));
+}

@@ -7,6 +7,7 @@
 								  "ThreeWayPipe.cpp"
 								  "Controller.cpp"
 								  "Sounds.cpp"
+								  "Fonts.cpp"
 								  "Textures.cpp"
 								  "FileHandler.cpp"
 								  "Vertex.cpp"

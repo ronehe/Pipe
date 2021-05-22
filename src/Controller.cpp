@@ -1,11 +1,12 @@
 #include "Controller.h"
 #include "Textures.h"
 #include "Sounds.h"
+#include "Fonts.h"
+#include "Macros.h"
 #include "CurvedPipe.h"
-#pragma once
 
 Controller::Controller()
-	: m_gameWindow(SCREEN_SIZE, "Pipes",sf::Style::Close), m_background(Textures::instance().get_Textures(background_t)),
+	: m_gameWindow(SCREEN_SIZE, "Pipes", sf::Style::Close), m_background(Textures::instance().get_Textures(background_t)),
 	m_bgMenu(Textures::instance().get_Textures(background_t)),
 	m_mapOnScreen(m_map.get_Size())
 {
@@ -14,6 +15,13 @@ Controller::Controller()
 	generateBackgrounds();
 	
 	updateDataStructures();
+
+	m_timeText.setFont(Fonts::instance().get_Fonts(PipedFont_t));
+	m_timeText.setString("Time: ");
+	m_timeText.setPosition(MENU_POS);
+	m_timeText.setCharacterSize(50);
+	m_timeText.setFillColor(sf::Color::Black);
+	m_gameWindow.draw(m_timeText);
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -27,6 +35,7 @@ void Controller::generateBackgrounds() {
 void Controller::updateDataStructures() {
 	
 	m_mapOnScreen.initialize(m_map);
+	m_clock.restart();
 
 	
 }
@@ -38,6 +47,8 @@ void Controller::startGame() {
 		m_gameWindow.clear();
 		m_gameWindow.draw(m_background);
 		m_gameWindow.draw(m_bgMenu);
+		m_timeText.setString("Time: " + std::to_string(int(m_clock.getElapsedTime().asSeconds())));
+		m_gameWindow.draw(m_timeText);
 		
 		m_mapOnScreen.drawBoard(m_gameWindow);
 		m_gameWindow.display();

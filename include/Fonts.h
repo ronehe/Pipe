@@ -2,19 +2,19 @@
 #include <SFML/Graphics.hpp>
 #include "Macros.h"
 
-class Textures {
+class Fonts{
+
 	//--------------public--------functions-----------------------//
 public:
-	static Textures& instance();
+	static Fonts& instance();
 	//gets requested sound from sound member
-	const sf::Texture& get_Textures(pipeTextures key) { return (m_pipeTex[key]); }
+	const sf::Font& get_Fonts(GameFonts key) { return (m_gameFonts[key]); }
+	void loadFont(sf::Font& sound, const std::string& fontName);
 	//--------------private--------functions-----------------------//		
 private:
-	void loadPic(sf::Texture&, const std::string&);
+
 	//------------------members-----------------------------------//		
 private:
-	Textures();//constractor for static member
-	//~Textures();
-	std::map<enum pipeTextures, sf::Texture> m_pipeTex;
-
+	Fonts();//constractor for static member
+	std::map<GameFonts, sf::Font> m_gameFonts;
 };

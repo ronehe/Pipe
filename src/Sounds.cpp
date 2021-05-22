@@ -25,4 +25,8 @@ Sounds::Sounds() {
 	soundName = "cheers.wav";
 	loadSound(sound, soundName);
 	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(cheers_t, sound));
+
+	soundName = "CantMove.wav";
+	loadSound(sound, soundName);
+	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(SinkSound_t, sound));
 }
