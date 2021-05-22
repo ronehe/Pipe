@@ -43,10 +43,7 @@ void Controller::startGame() {
 		m_gameWindow.display();
 		if (m_mapOnScreen.isLvlFinished()) {
 			m_finishedLvlSound.play();
-			while (1);
-			std::cout << "yeahhh";
-			//loadNewMap();
-
+			break;
 		}
 		while (m_gameWindow.pollEvent(event))
 		{

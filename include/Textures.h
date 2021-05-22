@@ -11,6 +11,7 @@ public:
 	const sf::Texture& get_Textures(pipeTextures key) { return (m_pipeTex[key]); }
 	//--------------private--------functions-----------------------//		
 private:
+	void loadPic(sf::Texture&, const std::string&);
 
 	//------------------members-----------------------------------//		
 private:
