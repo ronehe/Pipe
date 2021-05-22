@@ -14,8 +14,8 @@ BasePipe::BasePipe(sf::Vector2u loc, std::unique_ptr<Vertex>& vertex)
 	vertex = std::make_unique<Vertex>(this);
 	m_vertex = vertex.get();
 
-	m_rotationSound.setBuffer(Sounds::instance().get_Sounds(rotation_t));
 	m_rotationSound.setVolume(3);
+	m_rotationSound.setBuffer(Sounds::instance().get_Sounds(rotation_t));
 }
 
 void BasePipe::drawPipe(sf::RenderWindow& game_Window)const {

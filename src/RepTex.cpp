@@ -86,9 +86,10 @@ void RepTex::rotatePipe(const sf::Vector2u &posPipe, float degrees) {
 void RepTex::shuffle() {
 	sf::Vector2u loc;
 	int random;
+	std::srand(std::time(nullptr));
 	for(loc.x = 0; loc.x < m_pipes.size(); loc.x++){
 		for(loc.y = 0; loc.y < m_pipes[loc.x].size(); loc.y++){
-			random = rand() % 4;
+			random = std::rand() % 4;
 			for (auto i = 0; i < random; i++)
 				rotatePipe(loc, DEG90);
 		}

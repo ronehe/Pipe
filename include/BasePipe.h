@@ -24,6 +24,7 @@ private:
 	sf::Sprite m_pipe;
 	const sf::Vector2u m_loc;
 	sf::Sound m_rotationSound;
+	sf::Sound m_connectionSound;
 protected:
 	Vertex* m_vertex;
 };
