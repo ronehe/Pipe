@@ -46,7 +46,7 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 	}
 }
 
-void RepTex::initialize(FileHandler &map) {
+void RepTex::initialize(FileHandler& map) {
 	sf::Vector2u loc;
 	auto size = map.get_Size();
 	char currentChar;
@@ -59,9 +59,14 @@ void RepTex::initialize(FileHandler &map) {
 	}
 
 	m_graph.initializeEdges();
-	
+
 	shuffle();
 	m_graph.BFS();
+	for (auto& row : m_pipes) {
+		for (auto& col : row) {
+			col.get()->setRotationSound();
+		}
+	}
 }
 
 //drawing the board on requested screen..
