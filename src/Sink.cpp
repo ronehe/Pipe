@@ -14,4 +14,5 @@ void Sink::setRotationSound() {
 	m_connectionSound.setVolume(3);
 }
 
-void Sink::playSound() {}
+//void Sink::playSound() {}
+void Sink::playConnectionSound() {}

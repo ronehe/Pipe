@@ -17,7 +17,7 @@ public:
 	 sf::Vector2u getLoc() const ;
 	 void changeColor(const sf::Color&);
 	 virtual void playSound();
-	 void playConnectionSound();
+	 virtual void playConnectionSound();
 	 virtual void setRotationSound();
 	 virtual void setVolume();
 

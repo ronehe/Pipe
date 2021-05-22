@@ -26,8 +26,9 @@ void Vertex::changeColor(const sf::Color& color) {
 	m_pipe->changeColor(color);
 }
 void Vertex::addNeighbor( Vertex * neighbor) {
-	m_pipe->playConnectionSound();
 	m_neighbors.insert(neighbor);
+	if(!dynamic_cast<Sink*>(m_pipe)) //play sound of connection only if not sink
+		m_pipe->playConnectionSound();
 }
 
 
