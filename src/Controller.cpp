@@ -44,6 +44,7 @@ void Controller::newLvl() {
 		updateDataStructures();
 		m_level++;
 		m_clock.restart();
+		m_numOfRotations = 0;
 	}
 	
 }
@@ -56,11 +57,8 @@ void Controller::generateBackgrounds() {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::updateDataStructures() {
-	
 	m_mapOnScreen->initialize(m_map);
 	m_clock.restart();
-
-	
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 

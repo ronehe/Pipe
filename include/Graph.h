@@ -12,6 +12,7 @@ public:
 	void rotate(const sf::Vector2u& posPipe, int direction);
 	void updateAfterRotate(const sf::Vector2u& posPipe);//after rotation we need to set the neightbors of the current vetrex and the neighbors's neighbors  
 	bool isDestConnected();
+	void setNoConnection();
 
 
 	void BFS() ;

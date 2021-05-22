@@ -72,6 +72,10 @@ void Graph::updateVertexNeighbors(int row, int col) {
 	}
 }
 
+void Graph::setNoConnection() {
+	m_DestConnected = false;
+}
+
 	
 void Graph::BFS() {
 	// Mark all the vertices as not visited

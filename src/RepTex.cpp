@@ -18,7 +18,7 @@ RepTex::RepTex(sf::Vector2u mapSize)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-void RepTex::addPipe(char p,sf::Vector2u loc){
+BasePipe* RepTex::addPipe(char p,sf::Vector2u loc){
 	switch (p)
 	{
 	case 'A':
@@ -44,31 +44,50 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 						+ " is not a supprorted command, to see supported commands please go to README\n")).data());
 		break;
 	}
+	return m_pipes[loc.x][loc.y].get();
 }
 
 void RepTex::initialize(FileHandler& map) {
 	sf::Vector2u loc;
+	bool sinkExists = false,tapExists = false;
+	BasePipe* pipe;
+
 	auto size = map.get_Size();
 	char currentChar;
 
 	for (loc.x = 0; loc.x < size.x; loc.x++) {
 		for (loc.y = 0; loc.y < size.y; loc.y++) {
 			currentChar = map.what_In_Location(loc);
-			addPipe(currentChar, loc);
+			pipe = addPipe(currentChar, loc);
+			if (!sinkExists && dynamic_cast<Sink*>(pipe)) {
+				sinkExists = true;
+			}
+			if (!tapExists && dynamic_cast<Tap*>(pipe)) {
+				tapExists = true;
+			}
 		}
 	}
-
+	if (!sinkExists || !tapExists) {
+		throw std::exception("The map does not contain sink or tap");
+	}
 	m_graph.initializeEdges();
 
-	shuffle();
-	m_graph.BFS();
+	//shuffle until theres no solution on board
+	do{
+		m_graph.setNoConnection();
+		shuffle();
+		m_graph.BFS();
+	} 	while (m_graph.isDestConnected());
+	resetSoundPipes();
+}
+
+void RepTex::resetSoundPipes() {
 	for (auto& row : m_pipes) {
 		for (auto& col : row) {
 			col.get()->setRotationSound();
 		}
 	}
 }
-
 //drawing the board on requested screen..
 void RepTex::drawBoard(sf::RenderWindow& game_Window) {
 	for (unsigned int i = 0; i < m_pipes.size(); i++) {
