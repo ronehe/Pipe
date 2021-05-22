@@ -55,6 +55,11 @@ void FileHandler::set_Map() {
 	auto cur = std::string();
 	for (i; i < MAP_SIZE; i++) {
 		std::getline(m_Cf, cur);
+		if (cur.size() != m_Size.y)
+			throw std::invalid_argument(("Size of row is " +
+									std::to_string(m_Size.y) +
+									"but theres a line with size " +
+									std::to_string(cur.size())).data());
 
 		m_fileHandler.push_back(cur);
 	}
@@ -76,8 +81,6 @@ void FileHandler::change_Map(const sf::Vector2i change, const char request) {
 *return the amount of lines in the vector
 */
 sf::Vector2u FileHandler::get_Size() const {
-
-	
 	return m_Size;
 }
 //--------------------------------------------------

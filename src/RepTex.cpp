@@ -40,7 +40,7 @@ void RepTex::addPipe(char p,sf::Vector2u loc){
 		break;
 
 	default:
-		throw std::invalid_argument((p + "is not a supprorted command, to see supported commands please go to README"));
+		throw std::invalid_argument(((std::string(1, p) + " is not a supprorted command, to see supported commands please go to README")).data());
 		break;
 	}
 }
@@ -53,7 +53,6 @@ void RepTex::initialize(FileHandler &map) {
 	for (loc.x = 0; loc.x < size.x; loc.x++) {
 		for (loc.y = 0; loc.y < size.y; loc.y++) {
 			currentChar = map.what_In_Location(loc);
-			//auto curved = new CurvedPipe(PIPE_SIZE, loc);
 			addPipe(currentChar, loc);
 		}
 	}

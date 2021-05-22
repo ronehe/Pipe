@@ -4,8 +4,13 @@
 #include <Windows.h>
 #include "Controller.h"
 int main() {
-    Controller game;
+    try {
+        Controller game;
 
-    game.startGame();
+        game.startGame();
+    }
+    catch(std::exception& e){
+        std::cout << e.what();
+    }
     exit(EXIT_SUCCESS);
 }
