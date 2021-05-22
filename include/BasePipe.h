@@ -18,6 +18,7 @@ public:
 	 void changeColor(const sf::Color&);
 	 void playSound();
 	 virtual void setRotationSound();
+	 virtual void setVolume();
 
 	 
 	 virtual ~BasePipe() {} 

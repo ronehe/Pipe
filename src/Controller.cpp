@@ -77,5 +77,6 @@ void Controller::rotate(sf::Event event) {
 		if (event.mouseButton.button != sf::Mouse::Left)
 			dir *= -1.f;
 		m_mapOnScreen.rotatePipe(sf::Vector2u(int(event.mouseButton.y / PIPE_TEXTURE_SIZE), int(event.mouseButton.x / PIPE_TEXTURE_SIZE)), dir);
+
 	}
 }

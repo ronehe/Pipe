@@ -22,6 +22,12 @@ void BasePipe::setRotationSound() {
 	m_rotationSound.setVolume(3);
 	m_rotationSound.setBuffer(Sounds::instance().get_Sounds(rotation_t));
 }
+void BasePipe:: setVolume() {
+
+	m_rotationSound.stop();
+	
+
+}
 
 void BasePipe::drawPipe(sf::RenderWindow& game_Window)const {
 	game_Window.draw(m_pipe);
