@@ -5,9 +5,11 @@ Textures& Textures::instance() {
 	return all_So;
 }
 
-void Textures::loadPic(sf::Texture& tex, const std::string& texName) {
+void Textures::loadPic(sf::Texture& tex, const std::string& texName,pipeTextures curpipe) {
 	if (!tex.loadFromFile(texName)) throw std::exception((texName +
 							" does not exist, please check CMake or give a valid file name\n").data());
+	tex.setSmooth(true);
+	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(curpipe, tex));
 }
 
 //set textures for all object in the game once
@@ -17,38 +19,30 @@ Textures::Textures() {
 	auto texName = std::string();
 
 	texName = "CurvedPipe2.png";
-	loadPic(pic, texName);
-	pic.setSmooth(true);
-	m_pipeTex.insert(std::pair<pipeTextures,sf::Texture>(curvedPipe_t,pic));
+	loadPic(pic, texName, curvedPipe_t);
+	
 
 	texName = "straightPipe - Copy.png";
-	loadPic(pic, texName);
-	pic.setSmooth(true);
-	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(straightPipe_t, pic));
+	loadPic(pic, texName, straightPipe_t);
+	
 
 	texName = "bg2.png";
-	loadPic(pic, texName);
-	pic.setSmooth(true);
-	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(background_t, pic));
+	loadPic(pic, texName, background_t);
+	
 
 	texName = "menu.png";
-	loadPic(pic, texName);
-	pic.setSmooth(true);
+	loadPic(pic, texName, menu_t);
 	pic.setRepeated(true);
-	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(menu_t, pic));
+	
 	
 	texName = "threePipe.png";
-	loadPic(pic, texName);
-	pic.setSmooth(true);
-	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(threeWayPipe_t, pic));
+	loadPic(pic, texName, threeWayPipe_t);
 	
 	texName = "k.png";
-	loadPic(pic, texName);
-	pic.setSmooth(true);
-	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(sink_t, pic));
+	loadPic(pic, texName, sink_t);
+
 
 	texName = "b.png";
-	loadPic(pic, texName);
-	pic.setSmooth(true);
-	m_pipeTex.insert(std::pair<pipeTextures, sf::Texture>(tap_t, pic));
+	loadPic(pic, texName, tap_t);
+
 }
