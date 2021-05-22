@@ -32,6 +32,7 @@ private:
 
 	sf::Text m_timeText;
 	sf::Text m_rotationText;
+	sf::Text m_lvlText;
 	sf::Sound m_finishedLvlSound;
 	sf::Clock m_clock;
 	std::map<char, pipeTextures>m_charToTexConverter;
@@ -40,6 +41,7 @@ private:
 	std::unique_ptr<RepTex>m_mapOnScreen;
 
 	int m_numOfRotations = 0;
+	int m_level = 1;
 
 	//Board m_board;
 };

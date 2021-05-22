@@ -23,11 +23,16 @@ Controller::Controller()
 	m_timeText.setFillColor(sf::Color::Black);
 
 	m_rotationText.setFont(Fonts::instance().get_Fonts(PipedFont_t));
-	m_rotationText.setString("Taps: " + std::to_string(m_numOfRotations));
+	m_rotationText.setString("Rotations: " + std::to_string(m_numOfRotations));
 	m_rotationText.setPosition(MENU_POS + sf::Vector2f(0, 100));
 	m_rotationText.setCharacterSize(50);
 	m_rotationText.setFillColor(sf::Color::Black);
-	m_gameWindow.draw(m_timeText);
+
+	m_lvlText.setFont(Fonts::instance().get_Fonts(PipedFont_t));
+	m_lvlText.setString("Level: " + std::to_string(m_level));
+	m_lvlText.setPosition(MENU_POS + sf::Vector2f(0, 200));
+	m_lvlText.setCharacterSize(50);
+	m_lvlText.setFillColor(sf::Color::Black);
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::newLvl() {
@@ -37,6 +42,8 @@ void Controller::newLvl() {
 		m_mapOnScreen = std::make_unique<RepTex>(m_map.get_Size());
 
 		updateDataStructures();
+		m_level++;
+		m_clock.restart();
 	}
 	
 }
@@ -65,8 +72,10 @@ void Controller::startGame() {
 		m_gameWindow.draw(m_bgMenu);
 		m_timeText.setString("Time: " + std::to_string(int(m_clock.getElapsedTime().asSeconds())));
 		m_rotationText.setString("Rotations: " + std::to_string(m_numOfRotations));
+		m_lvlText.setString("Level: " + std::to_string(m_level));
 		m_gameWindow.draw(m_timeText);
 		m_gameWindow.draw(m_rotationText);
+		m_gameWindow.draw(m_lvlText);
 		
 		m_mapOnScreen->drawBoard(m_gameWindow);
 		m_gameWindow.display();
