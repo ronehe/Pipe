@@ -38,3 +38,4 @@ where:
 * B indicates tap
 * K indicates sink
 
+If the map.txt file does not as described, an exception will be thrown, and a message will be written onto a file named "log.txt".
