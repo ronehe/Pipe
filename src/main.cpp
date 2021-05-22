@@ -3,6 +3,8 @@
 #include "Board.h"
 #include <Windows.h>
 #include "Controller.h"
+#include <fstream>
+#include <iostream>
 int main() {
     try {
         Controller game;
@@ -10,7 +12,8 @@ int main() {
         game.startGame();
     }
     catch(std::exception& e){
-        std::cout << e.what();
+        std::ofstream file("log.txt");
+        file << e.what();
     }
     exit(EXIT_SUCCESS);
 }
