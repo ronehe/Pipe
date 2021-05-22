@@ -5,11 +5,9 @@ Sink::Sink(sf::Vector2u loc, std::unique_ptr<Vertex>& vertex)
 	m_vertex->setDir(SINK_DIR);
 
 	setTexture(Textures::instance().get_Textures(sink_t));
-
+	setRotationSound();
 }
-void Sink::rotate(float) {
-
-}
+void Sink::rotate(float) {}
 
 void Sink::setRotationSound() {
 	m_rotationSound.setVolume(3);

@@ -15,7 +15,8 @@ BasePipe::BasePipe(sf::Vector2u loc, std::unique_ptr<Vertex>& vertex)
 	m_vertex = vertex.get();
 
 	setRotationSound();
-
+	m_connectionSound.setVolume(2);
+	m_connectionSound.setBuffer(Sounds::instance().get_Sounds(ConnectionSound_t));
 }
 
 void BasePipe::setRotationSound() {
@@ -29,6 +30,9 @@ void BasePipe::drawPipe(sf::RenderWindow& game_Window)const {
 
 void BasePipe::playSound() {
 	m_rotationSound.play();
+}
+
+void BasePipe::playConnectionSound() {
 }
 
 void BasePipe::setTexture(const sf::Texture& pic) {

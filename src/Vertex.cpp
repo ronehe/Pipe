@@ -26,7 +26,8 @@ void Vertex::changeColor(const sf::Color& color) {
 	m_pipe->changeColor(color);
 }
 void Vertex::addNeighbor( Vertex * neighbor) {
-		m_neighbors.insert(neighbor);
+	m_pipe->playConnectionSound();
+	m_neighbors.insert(neighbor);
 }
 
 
