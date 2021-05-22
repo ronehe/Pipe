@@ -33,6 +33,8 @@ void BasePipe::playSound() {
 }
 
 void BasePipe::playConnectionSound() {
+	m_rotationSound.stop();
+	m_connectionSound.play();
 }
 
 void BasePipe::setTexture(const sf::Texture& pic) {
@@ -40,8 +42,6 @@ void BasePipe::setTexture(const sf::Texture& pic) {
 }
 
 void BasePipe::rotate(float degrees) {
-
-	
 	m_pipe.rotate(degrees);
 }
 
