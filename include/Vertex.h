@@ -15,8 +15,8 @@ public:
 	void removeNeighbors();
 	sf::Vector2u getloc()const;
 	bool vertexIsSrc() const;
-	std::unordered_set <Vertex*>::iterator getBeginNeighbor();
-	std::unordered_set <Vertex*>::iterator getEndNeighbor();
+	std::unordered_set <Vertex*>::const_iterator getBeginNeighbor();
+	std::unordered_set <Vertex*>::const_iterator getEndNeighbor();
 private:
 	BasePipe* m_pipe;
 	std::unordered_set<Vertex*> m_neighbors;

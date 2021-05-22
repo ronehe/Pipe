@@ -16,11 +16,11 @@ bool Vertex::isPointingToDir(Directions cur) {
 sf::Vector2u Vertex::getloc()const {
 	return m_pipe->getLoc();
 }
-std::unordered_set <Vertex*>::iterator Vertex::getBeginNeighbor(){
-	return m_neighbors.begin();
+std::unordered_set <Vertex*>::const_iterator Vertex::getBeginNeighbor(){
+	return m_neighbors.cbegin();
 }
-std::unordered_set <Vertex*>::iterator Vertex::getEndNeighbor() {
-	return m_neighbors.end();
+std::unordered_set <Vertex*>::const_iterator Vertex::getEndNeighbor() {
+	return m_neighbors.cend();
 }
 void Vertex::changeColor(const sf::Color& color) {
 	m_pipe->changeColor(color);
