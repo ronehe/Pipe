@@ -7,9 +7,11 @@ Sounds& Sounds::instance() {
 	return all_S;
 }
 
-void Sounds::loadSound(sf::SoundBuffer& sound, const std::string& soundName) {
+void Sounds::loadSound(sf::SoundBuffer& sound, const std::string& soundName,GameSounds soundsEnum) {
 	if (!sound.loadFromFile(soundName)) throw std::exception((soundName +
 							"does not exist, please check CMake or give a valid file name").data());
+	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(soundsEnum, sound));
+
 }
 
 //set textures for all object in the game once
@@ -19,18 +21,14 @@ Sounds::Sounds() {
 	auto soundName = std::string();
 
 	soundName = "rotationSound.wav";
-	loadSound(sound, soundName);
-	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(rotation_t, sound));
+	loadSound(sound, soundName, rotation_t);
 
 	soundName = "cheers.wav";
-	loadSound(sound, soundName);
-	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(cheers_t, sound));
+	loadSound(sound, soundName, cheers_t);
 
 	soundName = "CantMove.wav";
-	loadSound(sound, soundName);
-	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(SinkSound_t, sound));
+	loadSound(sound, soundName, SinkSound_t);
 
 	soundName = "connection.wav";
-	loadSound(sound, soundName);
-	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(ConnectionSound_t, sound));
+	loadSound(sound, soundName, ConnectionSound_t);
 }

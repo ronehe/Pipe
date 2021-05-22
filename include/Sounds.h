@@ -9,7 +9,7 @@ public:
 	static Sounds& instance();
 	//gets requested sound from sound member
 	const sf::SoundBuffer& get_Sounds(GameSounds key) { return (m_gameSounds[key]); }
-	void loadSound(sf::SoundBuffer& sound, const std::string& soundName);
+	void loadSound(sf::SoundBuffer& sound, const std::string& soundName, GameSounds soundsEnum);
 	//--------------private--------functions-----------------------//		
 private:
 
