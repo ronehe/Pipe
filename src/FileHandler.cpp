@@ -51,9 +51,11 @@ bool FileHandler::set_Size() {
 void FileHandler::set_Map() {
 	std::string temp;
 	
+		m_fileHandler.resize(0);
+	
 	int i = 0;
 	auto cur = std::string();
-	for (i; i < MAP_SIZE; i++) {
+	for (i; i < m_Size.x; i++) {
 		std::getline(m_Cf, cur);
 
 		m_fileHandler.push_back(cur);

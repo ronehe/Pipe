@@ -4,16 +4,29 @@
 #pragma once
 
 Controller::Controller()
-	: m_gameWindow(SCREEN_SIZE, "Pipes",sf::Style::Close), m_background(Textures::instance().get_Textures(background_t)),
-	m_bgMenu(Textures::instance().get_Textures(background_t)),
-	m_mapOnScreen(m_map.get_Size())
+	: m_gameWindow(SCREEN_SIZE, "Pipes", sf::Style::Close), m_background(Textures::instance().get_Textures(background_t)),
+	m_bgMenu(Textures::instance().get_Textures(background_t))
 {
-	
+
+	m_mapOnScreen = std::make_unique<RepTex>(m_map.get_Size());
+
 	generateBackgrounds();
 	
 	updateDataStructures();
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+void Controller::newLvl() {
+	//checking if there is a new lvl
+	if (m_map.rebuild_Map()) {
+		m_mapOnScreen.release();
+		m_mapOnScreen = std::make_unique<RepTex>(m_map.get_Size());
+
+		updateDataStructures();
+	}
+}
+
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::generateBackgrounds() {
@@ -24,7 +37,7 @@ void Controller::generateBackgrounds() {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void Controller::updateDataStructures() {
 	
-	m_mapOnScreen.initialize(m_map);
+	m_mapOnScreen->initialize(m_map);
 
 	
 }
@@ -37,11 +50,10 @@ void Controller::startGame() {
 		m_gameWindow.draw(m_background);
 		m_gameWindow.draw(m_bgMenu);
 		
-		m_mapOnScreen.drawBoard(m_gameWindow);
+		m_mapOnScreen->drawBoard(m_gameWindow);
 		m_gameWindow.display();
-		if (m_mapOnScreen.isLvlFinished()) {
-			std::cout << "yeahhh";
-			//loadNewMap();
+		if (m_mapOnScreen->isLvlFinished()) {
+			newLvl();
 
 		}
 		while (m_gameWindow.pollEvent(event))
@@ -64,6 +76,6 @@ void Controller::rotate(sf::Event event) {
 	if (!(int(event.mouseButton.x / PIPE_TEXTURE_SIZE) > (size.y - 1)) && !(int(event.mouseButton.y / PIPE_TEXTURE_SIZE) > (size.x - 1))) {
 		if (event.mouseButton.button != sf::Mouse::Left)
 			dir *= -1.f;
-		m_mapOnScreen.rotatePipe(sf::Vector2u(int(event.mouseButton.y / PIPE_TEXTURE_SIZE), int(event.mouseButton.x / PIPE_TEXTURE_SIZE)), dir);
+		m_mapOnScreen->rotatePipe(sf::Vector2u(int(event.mouseButton.y / PIPE_TEXTURE_SIZE), int(event.mouseButton.x / PIPE_TEXTURE_SIZE)), dir);
 	}
 }

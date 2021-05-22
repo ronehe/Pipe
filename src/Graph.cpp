@@ -63,12 +63,12 @@ void Graph::updateVertexNeighboors(int row, int col) {
 			m_vertices[row][col].get()->addNeighbor(m_vertices[row][col - 1].get());
 		}
 	}
-	if (col != m_graphSize.x - 1) {
+	if (col != m_graphSize.y - 1) {
 		if (m_vertices[row][col].get()->isPointingToDir(right_t) && m_vertices[row][col + 1].get()->isPointingToDir(left_t)) {
 			m_vertices[row][col].get()->addNeighbor(m_vertices[row][col + 1].get());
 		}
 	}
-	if (row != m_graphSize.y - 1) {
+	if (row != m_graphSize.x - 1) {
 		if (m_vertices[row][col].get()->isPointingToDir(down_t) && m_vertices[row + 1][col].get()->isPointingToDir(up_t)) {
 			m_vertices[row][col].get()->addNeighbor(m_vertices[row + 1][col].get());
 		}
