@@ -7,7 +7,6 @@ BasePipe::BasePipe(sf::Vector2u loc, std::unique_ptr<Vertex>& vertex)
 	auto pos= sf::Vector2f(board_Start.x + loc.y * float(PIPE_TEXTURE_SIZE), board_Start.y + (loc.x * float(PIPE_TEXTURE_SIZE)));
 	m_pipe.setOrigin(HALF * size); //set the origin to be the middle
 	m_pipe.setPosition(pos + HALF * size); 
-	//m_tile.setColor(sf::Color(0x9A, 0xCD, 0x32));//green
 	m_pipe.setColor(sf::Color(0xAD, 0xFF, 0x2F));//green
 
 	m_pipe.setTextureRect(sf::IntRect(0, 0, 100, 100));
@@ -30,6 +29,7 @@ void BasePipe::drawPipe(sf::RenderWindow& game_Window)const {
 }
 
 void BasePipe::playSound() {
+	m_connectionSound.stop();
 	m_rotationSound.play();
 }
 
@@ -47,7 +47,6 @@ void BasePipe::rotate(float degrees) {
 }
 
 sf::Vector2u BasePipe::getLoc() const{
-
 	return m_loc;
 }
 
