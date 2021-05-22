@@ -32,6 +32,7 @@ void Controller::newLvl() {
 
 		updateDataStructures();
 	}
+	
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//

@@ -7,9 +7,9 @@ class Fonts{
 	//--------------public--------functions-----------------------//
 public:
 	static Fonts& instance();
-	//gets requested sound from sound member
+	//gets requested font from font member
 	const sf::Font& get_Fonts(GameFonts key) { return (m_gameFonts[key]); }
-	void loadFont(sf::Font& sound, const std::string& fontName);
+	void loadFont(sf::Font& font, const std::string& fontName,GameFonts fontEnum);
 	//--------------private--------functions-----------------------//		
 private:
 
