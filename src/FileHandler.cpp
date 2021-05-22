@@ -53,7 +53,7 @@ void FileHandler::set_Map() {
 	
 	int i = 0;
 	auto cur = std::string();
-	for (i; i < MAP_SIZE; i++) {
+	for (i; i < m_Size.x; i++) {
 		std::getline(m_Cf, cur);
 		if (cur.size() != m_Size.y)
 			throw std::invalid_argument(("Size of row is " +
