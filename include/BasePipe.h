@@ -16,7 +16,7 @@ public:
 	virtual void rotate(float); //all do the same except sink
 	 sf::Vector2u getLoc() const ;
 	 void changeColor(const sf::Color&);
-	 void playSound();
+	 virtual void playSound();
 	 void playConnectionSound();
 	 virtual void setRotationSound();
 	 virtual void setVolume();

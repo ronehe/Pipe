@@ -30,7 +30,7 @@ Sounds::Sounds() {
 	loadSound(sound, soundName);
 	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(SinkSound_t, sound));
 
-	soundName = "Connection.wav";
+	soundName = "connection.wav";
 	loadSound(sound, soundName);
 	m_gameSounds.insert(std::pair<GameSounds, sf::SoundBuffer>(ConnectionSound_t, sound));
 }

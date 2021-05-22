@@ -19,7 +19,7 @@ enum GameSounds{
 	rotation_t = 0,
 	cheers_t = 1,
 	SinkSound_t = 2,
-	ConnectionSound_t= 2,
+	ConnectionSound_t= 3,
 };
 
 enum GameFonts{
