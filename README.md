@@ -7,7 +7,7 @@ This is the fourth academic exercise of the course OOP2.
 Main objective: to create a game based on [pipe](https://www.crazygames.com/game/pipe)
 
 ## Setup and guidelines
-This game consists of puzzles to the user' choice using custom building blocks that are described below written onto a text file.
+This game consists of puzzles to the user's choice using custom building blocks that are described below written onto a text file.
 There is no limitation to the amount of puzzles that can be inserted.
 
 The provided file must be called "map.txt" and must be of the following form:
@@ -38,6 +38,7 @@ SSSYYA
 
 where:
 * The rows and the columns MUST BE AT THE BEGINNING of each level, with no \n in between levels
+* The dimensions do not exceed 8X8
 * Y indicates straight Pipe
 * A indicates curved pipe
 * S indicates three-way pipe 
@@ -66,9 +67,8 @@ All the pipe types inherit from BasePipe.
 * the neighbors of each pipe are computed in run-time.
 * The pipes are inserted at default orientation and shuffled at the beginning of the game
 * number of rotations is number of taps
-*The BFS was taken from [here](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
-
-All textures, fonts, and sounds are generated in singleton classes named Textures, Fonts and Sounds.
+* The BFS was taken from [here](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
+*All textures, fonts, and sounds are generated in singleton classes named Textures, Fonts and Sounds.
 
 
 ### Classes
@@ -99,5 +99,6 @@ of the program together, such as the FileHandler to the board. It is also respon
 -everything mentioned above
 
 ### Noteworthy Algorithms
+* We used [BFS](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/) for checking connections between tap and sink.
 ### Known Bugs
 
