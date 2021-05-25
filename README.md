@@ -49,7 +49,8 @@ If the map.txt file does not as described, an exception will be thrown, and a me
 
 The core idea was to distinguish between the inside mechanism that maintains validity of game during execution, 
 and between the texture representation of it. So, we created the Board class that will maintain all that has to do
-with visibility and texture representation, which holds a private member of class Graph.
+with visibility and texture representation, which holds a private member of class Graph, which handles all algorithmic aspects needed
+for maintaining validity.
 
 The board holds a matrix of pointers to Pipe types, and the Graph holds a matrix of Vertex types. Each vertex is mapped onto
 a corresponding pipe.
@@ -78,7 +79,21 @@ and is mainly for maintaining order and for making sure the game remains valid f
 
 * Vertex: an object that is an instance of a pipe as a "backstage" object. It is the algorithmic representation of it,
 and is the main tool in which the algorithms work on. It holds a pointer to the texture representation of the pipe.
-* BasePipe: an object that is an instance of the texture representation of the pipe. It is what the player sees and it is the main
 
+* BasePipe: an object that is an instance of the texture representation of the pipe. It is what the player sees and it is the main
 source of interaction. 
+ 
+* ThreeWayPipe, CurvedPipe, StriahtPipe, Sink, Tap: objects that inherit from BasePipe and each has its own texture 
+and are the buildinig blocks of the board. They don't do much and have minor responsability.
+
+FileHandler: an object that is responsible for handling input operations, mainly for the text reading before reading the map
+
+* singletons: Fonts, Textures, Sounds are all independent singletons that each responsible for importing the needed information, 
+based on name
+
+### Files created
+-everything mentioned above
+
+### Noteworthy Algorithms
+### Known Bugs
 
