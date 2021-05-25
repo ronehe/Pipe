@@ -9,7 +9,7 @@ Controller::Controller()
 	: m_gameWindow(SCREEN_SIZE, "Pipes", sf::Style::Close), m_background(Textures::instance().get_Textures(background_t)),
 	m_bgMenu(Textures::instance().get_Textures(background_t))
 {
-	m_mapOnScreen = std::make_unique<RepTex>(m_map.get_Size());
+	m_mapOnScreen = std::make_unique<Board>(m_map.get_Size());
 	m_finishedLvlSound.setBuffer(Sounds::instance().get_Sounds(cheers_t));
 	m_finishedLvlSound.setVolume(5);
 	generateBackgrounds();
@@ -39,7 +39,7 @@ bool Controller::newLvl() {
 	//checking if there is a new lvl
 	if (m_map.rebuild_Map()) {
 		m_mapOnScreen.release();
-		m_mapOnScreen = std::make_unique<RepTex>(m_map.get_Size());
+		m_mapOnScreen = std::make_unique<Board>(m_map.get_Size());
 		updateDataStructures();
 		m_level++;
 		m_clock.restart();

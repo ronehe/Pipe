@@ -4,7 +4,6 @@
 #include <iostream>
 #include <Windows.h>
 #include "FileHandler.h"
-#include "RepTex.h"
 #include "Graph.h"
 
 
@@ -39,7 +38,7 @@ private:
 	std::map<char, pipeTextures>m_charToTexConverter;
 	std::map<char, const unsigned int> m_charToDirectionConverter;
 	FileHandler m_map;
-	std::unique_ptr<RepTex>m_mapOnScreen;
+	std::unique_ptr<Board>m_mapOnScreen;
 
 	int m_numOfRotations = 0;
 	int m_level = 1;

@@ -1,5 +1,5 @@
 ﻿target_sources (oop2_ex04 PRIVATE "main.cpp"
-								  #"Board.cpp"
+								  "Board.cpp"
 								  "Graph.cpp"
 								  "BasePipe.cpp"
 								  "CurvedPipe.cpp"
@@ -12,5 +12,4 @@
 								  "FileHandler.cpp"
 								  "Vertex.cpp"
 								  "Sink.cpp"
-								  "Tap.cpp"
-								  "RepTex.cpp")
+								  "Tap.cpp")

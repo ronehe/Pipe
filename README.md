@@ -60,6 +60,25 @@ which will update the pipes.
 
 All the pipe types inherit from BasePipe.
 
+### important points
+* the neighbors of each pipe are computed in run-time.
+* The pipes are inserted at default orientation and shuffled at the beginning of the game
+* number of rotations is number of taps
+
 All textures, fonts, and sounds are generated in singleton classes named Textures, Fonts and Sounds.
 
+
+### Classes
+
+* Board: handle all board related objects, mainly focuses on texture and connection with the graph
+	It holds a matrix of pipes that represent what the player sees.
+
+* Graph: handle all "backstage" related objects - mainly the vertices. It handles the entire algorithmic aspect of the game,
+and is mainly for maintaining order and for making sure the game remains valid for the entire game.
+
+* Vertex: an object that is an instance of a pipe as a "backstage" object. It is the algorithmic representation of it,
+and is the main tool in which the algorithms work on. It holds a pointer to the texture representation of the pipe.
+* BasePipe: an object that is an instance of the texture representation of the pipe. It is what the player sees and it is the main
+
+source of interaction. 
 

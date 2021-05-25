@@ -1,15 +1,19 @@
-/*
-#include "Tile.h"
 #pragma once
-class Board {
-
-
+#include "BasePipe.h"
+#include "Graph.h"
+#include"FileHandler.h"
+class Board{
 public:
+	BasePipe* addPipe(char p, sf::Vector2u loc);
 	void drawBoard(sf::RenderWindow& game_Window);
-	Tile& getTile(sf::Vector2i pos);
-	void rotateTile(const sf::Vector2i& posTile, float);
-	Board();
+	void rotatePipe(const sf::Vector2u& posTile, float);
+	Board(sf::Vector2u mapSize);
+	void initialize(FileHandler &map);
+	void resetColors();
+	void shuffle();
+	bool isLvlFinished();
+	void resetSoundPipes();
 private:
-	std::vector<std::vector<Tile>> m_board;
+	std::vector<std::vector<std::unique_ptr<BasePipe>>> m_pipes;
+	Graph m_graph;
 };
-*/
