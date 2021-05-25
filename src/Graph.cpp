@@ -76,7 +76,9 @@ void Graph::setNoConnection() {
 	m_DestConnected = false;
 }
 
-	
+
+//The BFS was taken from https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+
 void Graph::BFS() {
 	// Mark all the vertices as not visited
 	std::vector<std::vector<bool>> visited;

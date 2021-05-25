@@ -65,6 +65,7 @@ All the pipe types inherit from BasePipe.
 * the neighbors of each pipe are computed in run-time.
 * The pipes are inserted at default orientation and shuffled at the beginning of the game
 * number of rotations is number of taps
+*The BFS was taken from [here](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
 
 All textures, fonts, and sounds are generated in singleton classes named Textures, Fonts and Sounds.
 
@@ -91,6 +92,8 @@ FileHandler: an object that is responsible for handling input operations, mainly
 * singletons: Fonts, Textures, Sounds are all independent singletons that each responsible for importing the needed information, 
 based on name
 
+* Controller: holds everything together. It runs the game and handles main loop of events, and is responsible for connecting all parts
+of the program together, such as the FileHandler to the board. It is also responsible for taking 
 ### Files created
 -everything mentioned above
 
