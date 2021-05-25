@@ -1,7 +1,7 @@
 # Pipe: An academic exercise
 ![img](https://i.imgur.com/91AFoZg.png)
 
-This is the fourh academic exercise of the course OOP2.
+This is the fourth academic exercise of the course OOP2.
 * 
 
 Main objective: to create a game based on [pipe](https://www.crazygames.com/game/pipe)
